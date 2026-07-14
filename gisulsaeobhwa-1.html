@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 연구성과 기술사업화 실무 과정 참가안내</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue-dark: #1a3a5c;
+  --blue-mid: #2a5f8f;
+  --blue-light: #4a8bc4;
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --bg: #f4f6f9;
+  --white: #ffffff;
+  --text: #1a2535;
+  --text-muted: #556070;
+  --border: #dce4ed;
+  --card-bg: #ffffff;
+  --green: #2d7a4f;
+  --red: #c0392b;
+  --orange: #c47a1a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* ─── HERO ─── */
+.hero {
+  background: linear-gradient(145deg, var(--blue-dark) 0%, var(--blue-mid) 55%, #3a6fa3 100%);
+  padding: 40px 20px 32px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -40px;
+  width: 260px; height: 260px;
+  background: radial-gradient(circle, rgba(201,168,76,0.18) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30px; left: -20px;
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero-inner { position: relative; max-width: 780px; margin: 0 auto; }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.9);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+.hero-badge span { color: var(--gold-light); }
+.hero-title {
+  font-size: clamp(26px, 6vw, 36px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 6px;
+  letter-spacing: -0.5px;
+}
+.hero-subtitle {
+  font-size: 13px;
+  color: rgba(255,255,255,0.65);
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+.hero-tag {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 14px;
+}
+.hero-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  max-width: 480px;
+}
+.hero-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.hero-meta-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--gold-light);
+  text-transform: uppercase;
+}
+.hero-meta-value {
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* ─── NAV TABS ─── */
+.tab-nav {
+  background: var(--white);
+  border-bottom: 2px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.tab-nav-inner {
+  display: flex;
+  max-width: 780px;
+  margin: 0 auto;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tab-nav-inner::-webkit-scrollbar { display: none; }
+.tab-btn {
+  flex: 1;
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 14px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+  white-space: nowrap;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.tab-btn.active {
+  color: var(--blue-mid);
+  border-bottom-color: var(--blue-mid);
+}
+.tab-btn:hover:not(.active) {
+  color: var(--text);
+  background: rgba(42,95,143,0.04);
+}
+
+/* ─── CONTENT ─── */
+.content { max-width: 780px; margin: 0 auto; padding: 20px 16px 60px; }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ─── ALERT CARDS ─── */
+.alert-section { margin-bottom: 24px; }
+.alert-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+.alert-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 4px solid;
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+}
+.alert-icon { font-size: 20px; line-height: 1; margin-top: 1px; }
+.alert-body { flex: 1; }
+.alert-main { font-size: 13px; font-weight: 600; line-height: 1.4; }
+.alert-sub { font-size: 12px; color: var(--text-muted); margin-top: 2px; line-height: 1.4; }
+
+/* ─── SECTION HEADER ─── */
+.section-hd {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 28px 0 14px;
+}
+.section-hd-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.section-hd h2 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blue-dark);
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+/* ─── INFO GRID ─── */
+.info-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 14px;
+}
+.info-row {
+  display: flex;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.info-row:last-child { border-bottom: none; }
+.info-label {
+  min-width: 80px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--blue-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding-top: 1px;
+}
+.info-value {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* ─── OBJECTIVES ─── */
+.objective-list { padding-left: 0; list-style: none; }
+.objective-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.5;
+}
+.objective-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--blue-mid);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ─── DAY SELECTOR ─── */
+.day-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 2px;
+}
+.day-tabs::-webkit-scrollbar { display: none; }
+.day-tab {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 2px solid var(--border);
+  background: var(--white);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.day-tab.active {
+  background: var(--blue-mid);
+  border-color: var(--blue-mid);
+}
+.day-tab-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+.day-tab.active .day-tab-num { color: rgba(255,255,255,0.75); }
+.day-tab-date {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+}
+.day-tab.active .day-tab-date { color: #fff; }
+
+/* ─── SCHEDULE TABLE ─── */
+.schedule-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.schedule-row {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+}
+.schedule-row:last-child { border-bottom: none; }
+.schedule-row.meal {
+  background: #f9f9f9;
+}
+.schedule-time {
+  min-width: 90px;
+  padding: 12px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1.3;
+}
+.schedule-min {
+  font-size: 10px;
+  color: #aaa;
+  font-weight: 400;
+}
+.schedule-body { flex: 1; padding: 12px 14px; }
+.schedule-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  line-height: 1.4;
+  flex-wrap: wrap;
+}
+.schedule-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+  margin-top: 1px;
+}
+.schedule-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+.meal .schedule-title { color: #888; font-weight: 500; }
+
+/* ─── LOCATION ROWS ─── */
+.transport-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.transport-header {
+  background: var(--blue-dark);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 14px;
+  letter-spacing: 0.5px;
+}
+.transport-row {
+  display: flex;
+  gap: 12px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.transport-row:last-child { border-bottom: none; }
+.transport-from {
+  min-width: 80px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blue-mid);
+}
+.transport-info { flex: 1; font-size: 12px; color: var(--text); line-height: 1.5; }
+
+/* ─── CONTACT CARDS ─── */
+.contact-grid {
+  display: grid;
+  gap: 10px;
+}
+.contact-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.contact-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue-mid), var(--blue-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.contact-role {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 2px;
+}
+.contact-name { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.contact-links { display: flex; gap: 10px; flex-wrap: wrap; }
+.contact-link {
+  font-size: 12px;
+  color: var(--blue-mid);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.contact-link:hover { text-decoration: underline; }
+
+/* ─── COMPLETION RULES ─── */
+.rule-list { padding-left: 0; list-style: none; }
+.rule-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+.rule-item:last-child { border-bottom: none; }
+.rule-icon { font-size: 15px; margin-top: 1px; flex-shrink: 0; }
+
+/* ─── REGISTRATION STEPS ─── */
+.reg-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.reg-step {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.reg-step:last-child { border-bottom: none; }
+.reg-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--blue-mid);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.reg-step-body { flex: 1; }
+.reg-step-title { font-size: 13px; font-weight: 700; color: var(--text); }
+.reg-step-desc { font-size: 12px; color: var(--text-muted); margin-top: 2px; line-height: 1.4; }
+
+/* ─── NOTE BOX ─── */
+.note-box {
+  background: #fffbea;
+  border: 1px solid #e8c97a;
+  border-left: 4px solid var(--gold);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 12px;
+  color: #6b4c00;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+.note-box strong { color: #5a3c00; }
+
+/* ─── DISCLAIMER ─── */
+.disclaimer {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  line-height: 1.6;
+}
+
+/* ─── REVIEW (교육후기) ─── */
+.review-subtitle { font-size: 12.5px; color: var(--text-muted); line-height: 1.7; margin: -6px 0 14px; }
+.review-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left-width: 3px;
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(28,40,60,0.03);
+}
+.review-tagline { font-size: 11px; font-weight: 700; color: var(--blue-mid); background: #eef4fb; display: inline-block; border-radius: 5px; padding: 3px 7px; margin-bottom: 9px; }
+.review-text {
+  font-size: 13.5px; color: #333; line-height: 1.7;
+  margin-bottom: 12px; position: relative; padding-left: 4px;
+}
+.review-text::before {
+  content: '\201C';
+  color: var(--gold); font-size: 22px; font-weight: 900;
+  margin-right: 2px; font-family: Georgia, serif;
+  line-height: 0.4; vertical-align: -4px;
+}
+.review-author { display: flex; align-items: center; gap: 10px; }
+.review-avatar {
+  width: 34px; height: 34px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 13px; font-weight: 700; flex-shrink: 0;
+}
+.review-meta .name { font-size: 13px; font-weight: 700; color: #1a1a1a; line-height: 1.3; }
+.review-meta .org { font-size: 11px; color: #999; margin-top: 1px; }
+
+/* ─── WHY (교육 필요성·특성) ─── */
+.why-section {
+  background: linear-gradient(160deg, #ffffff 0%, #f2f7fc 100%);
+  border: 1px solid #d5e2ee;
+  border-radius: 12px;
+  padding: 22px 20px 20px;
+  margin-bottom: 26px;
+}
+.why-eyebrow {
+  display: inline-block;
+  font-size: 11px; font-weight: 800; letter-spacing: 0;
+  color: #a8862f;
+  background: rgba(201,168,76,0.13);
+  border: 1px solid rgba(201,168,76,0.38);
+  border-radius: 999px;
+  padding: 4px 10px;
+  margin-bottom: 12px;
+}
+.why-headline {
+  font-size: 20px; font-weight: 800; line-height: 1.45;
+  color: var(--blue-dark); letter-spacing: -0.5px;
+  margin-bottom: 10px;
+}
+.why-lead { font-size: 13px; line-height: 1.8; color: var(--text-muted); margin-bottom: 18px; }
+.why-lead strong { color: var(--blue-mid); font-weight: 700; }
+.why-quote-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+.why-quote {
+  position: relative; overflow: hidden;
+  background: #e9f1f8; border: 1px solid #d8e6f1;
+  border-radius: 10px; padding: 16px 14px 14px;
+}
+.why-quote::before {
+  content: '\201C';
+  position: absolute; top: 2px; right: 10px;
+  font-family: Georgia, serif; font-size: 44px; font-weight: 700;
+  color: #c9dced; line-height: 1;
+}
+.why-quote h4 { position: relative; z-index: 1; font-size: 13px; font-weight: 700; color: var(--blue-dark); line-height: 1.55; margin-bottom: 6px; }
+.why-quote p { position: relative; z-index: 1; font-size: 12px; color: var(--text-muted); line-height: 1.65; }
+.why-bridge {
+  text-align: center; font-size: 13px; font-weight: 600; color: var(--blue-dark);
+  background: var(--white); border: 1px dashed var(--blue-light);
+  border-radius: 10px; padding: 12px 14px; margin-bottom: 18px; line-height: 1.6;
+}
+.why-bridge strong { color: var(--blue-mid); border-bottom: 2px solid var(--gold); padding-bottom: 1px; }
+.why-feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.why-feature {
+  display: flex; align-items: flex-start; gap: 10px;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px;
+}
+.why-feature .fi { font-size: 19px; line-height: 1; margin-top: 2px; }
+.why-feature h4 { font-size: 13px; font-weight: 700; color: var(--blue-dark); margin-bottom: 4px; }
+.why-feature p { font-size: 12px; color: var(--text-muted); line-height: 1.65; }
+@media (max-width: 640px) {
+  .why-quote-grid, .why-feature-grid { grid-template-columns: 1fr; }
+  .why-headline { font-size: 17px; }
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 480px) {
+  .why-section { padding: 18px 15px 16px; }
+  .hero { padding: 28px 16px 22px; }
+  .hero-meta { grid-template-columns: 1fr; gap: 8px; }
+  .content { padding: 16px 12px 50px; }
+  .schedule-time { min-width: 76px; font-size: 10px; }
+  .info-label { min-width: 64px; font-size: 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span>2026</span> 연구성과 기술사업화 실무 과정 · 1기
+    </div>
+    <h1 class="hero-title">연구성과 기술사업화 실무 과정<br>참가안내문</h1>
+    <p class="hero-subtitle">과학기술정보통신부 &nbsp;·&nbsp; 국가과학기술인력개발원</p>
+    <div class="hero-tags">
+      <span class="hero-tag">#기술이전사업화</span>
+      <span class="hero-tag">#기술가치평가</span>
+      <span class="hero-tag">#AI수요기업발굴</span>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">기간</span>
+        <span class="hero-meta-value">9.10(목) ~ 9.11(금) | 1박 2일</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">장소</span>
+        <span class="hero-meta-value">KIRD 본원, 충북 오송</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">인원</span>
+        <span class="hero-meta-value">25명</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">비용</span>
+        <span class="hero-meta-value">300,000원 (4식 및 숙박 제공)</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- NAV TABS -->
+<nav class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" onclick="switchTab('overview')">📋 과정개요</button>
+    <button class="tab-btn" onclick="switchTab('schedule')">🗓 교육일정</button>
+    <button class="tab-btn" onclick="switchTab('access')">🚌 교통 및 시설 안내</button>
+    <button class="tab-btn" onclick="switchTab('info')">📌 참가안내 및 후기</button>
+    <button class="tab-btn" onclick="switchTab('register')">✅ 수강신청</button>
+  </div>
+</nav>
+
+<!-- CONTENT -->
+<main class="content">
+
+  <!-- ── TAB: 과정개요 ── -->
+  <div id="tab-overview" class="tab-panel active">
+
+    <!-- 교육 필요성 · 특성 -->
+    <div class="why-section">
+      <div class="why-eyebrow">왜 이 교육을 들어야 할까요?</div>
+      <div class="why-headline">좋은 기술을 개발하는 것으로 끝이 아닙니다. 이제 연구성과는 시장으로 연결되어야 합니다.</div>
+      <p class="why-lead">
+        그러나 현장에서는 "이 기술이 얼마짜리인지, 누구에게, 어떤 전략으로 이전할 것인가"라는 질문 앞에서 막히곤 합니다.
+      </p>
+
+      <div class="why-quote-grid">
+        <div class="why-quote">
+          <h4>기술이전 제도와 지원사업이 복잡한데<br>뭘 먼저 알아야 하지?</h4>
+          <p>기술사업화 정책과 지원제도 구조를 알아야 전략의 출발점이 보입니다.</p>
+        </div>
+        <div class="why-quote">
+          <h4>우리 기술이 얼마짜리인지<br>어떻게 설명하지?</h4>
+          <p>기술가치평가 방법론을 알아야 이전 협상의 근거를 세울 수 있습니다.</p>
+        </div>
+        <div class="why-quote">
+          <h4>이 기술을 누구에게<br>어떻게 알리지?</h4>
+          <p>수요기업을 발굴하고 AI로 기술마케팅하는 방법을 알아야 합니다.</p>
+        </div>
+      </div>
+
+      <div class="why-bridge">
+        이 과정은 세 가지 질문에 대한 답을 <strong>'기술사업화 추진계획(안)'</strong>이라는 손에 잡히는 결과물로 만들어 드립니다.
+      </div>
+
+      <div class="why-feature-grid">
+        <div class="why-feature">
+          <span class="fi">🧭</span>
+          <div>
+            <h4>기술사업화 정책 · 제도 이해</h4>
+            <p>기술이전·사업화 정책 흐름과 공공연구성과 지원제도 구조를 이해하고 전략의 방향을 잡습니다.</p>
+          </div>
+        </div>
+        <div class="why-feature">
+          <span class="fi">💰</span>
+          <div>
+            <h4>기술가치평가 방법론</h4>
+            <p>기술의 시장가치를 진단하는 관점과 접근법을 배워 이전 협상의 근거를 마련합니다.</p>
+          </div>
+        </div>
+        <div class="why-feature">
+          <span class="fi">🔍</span>
+          <div>
+            <h4>AI 활용 수요기업 발굴</h4>
+            <p>AI 도구로 시장·기업 정보를 분석해 수요기업을 발굴하고 기술마케팅 전략을 세웁니다.</p>
+          </div>
+        </div>
+        <div class="why-feature">
+          <span class="fi">✍️</span>
+          <div>
+            <h4>실습 + 전문가 피드백</h4>
+            <p>조별실습으로 기술사업화 추진계획(안)을 도출하고 전문가 피드백으로 고도화합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 주요 공지 -->
+    <div class="alert-section">
+      <div class="alert-title">📢 주요 공지</div>
+      <div class="alert-card" style="border-left-color:#c0392b;">
+        <span class="alert-icon">🗓</span>
+        <div class="alert-body">
+          <div class="alert-main">교육 신청 ~8.28(금) 18:00 | 교육비 납부 ~9.4(금) 18:00</div>
+          <div class="alert-sub">교육비 납부자에 한해 입과가 확정됩니다</div>
+        </div>
+      </div>
+      <div class="alert-card" style="border-left-color:#2c5f8a;">
+        <span class="alert-icon">🎓</span>
+        <div class="alert-body">
+          <div class="alert-main">교육시간 참석률 80% 이상 + 설문조사 완료 시 수료</div>
+          <div class="alert-sub">80% 미만 시 자동 미수료 처리됩니다</div>
+        </div>
+      </div>
+      <div class="alert-card" style="border-left-color:#2c5f8a;">
+        <span class="alert-icon">🪪</span>
+        <div class="alert-body">
+          <div class="alert-main">명함 30장 이상 준비</div>
+          <div class="alert-sub">참가자 네트워킹 시 명함 교환이 있습니다</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 교육목표 -->
+    <div class="section-hd">
+      <h2>🎯 교육목표</h2>
+      <div class="section-hd-line"></div>
+    </div>
+    <div class="info-card">
+      <ul class="objective-list">
+        <li class="objective-item">
+          연구성과의 시장가치를 진단하고 기술이전·사업화 전략을 수립하여, '기술사업화 추진계획(안)'을 도출한다.
+        </li>
+      </ul>
+    </div>
+
+    <!-- 과정개요 -->
+    <div class="section-hd">
+      <h2>📋 과정개요</h2>
+      <div class="section-hd-line"></div>
+    </div>
+    <div class="info-card">
+      <div class="info-row">
+        <span class="info-label">대상</span>
+        <span class="info-value">정출연·대학 기술이전전담조직(TLO) 및 연구성과 확산 업무 담당자 등, 25명</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">기간</span>
+        <span class="info-value">2026. 9. 10.(목) ~ 9. 11.(금) &nbsp;|&nbsp; 1박 2일 (9시간)</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">장소</span>
+        <span class="info-value">(충북) KIRD 국가과학기술인력개발원 본원<br><span style="color:var(--text-muted);font-size:12px;">충북 청주시 흥덕구 오송읍 오송생명2로 187</span></span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">비용</span>
+        <span class="info-value">300,000원 <span style="color:var(--green);font-weight:700;">(4식 및 숙박 제공)</span></span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">주관</span>
+        <span class="info-value">과학기술정보통신부, 국가과학기술인력개발원</span>
+      </div>
+    </div>
+    <div class="note-box" style="margin-top:10px;">
+      ※ 세금계산서 발행 문의 : <a href="tel:043-251-7044" style="color:var(--blue-mid);">043-251-7044</a> / <a href="mailto:hykim@kird.re.kr" style="color:var(--blue-mid);">hykim@kird.re.kr</a>
+    </div>
+
+  </div>
+
+  <!-- ── TAB: 교육일정 ── -->
+  <div id="tab-schedule" class="tab-panel">
+    <div class="section-hd">
+      <h2>🗓 교육일정</h2>
+      <div class="section-hd-line"></div>
+    </div>
+
+    <div class="day-tabs">
+      <div class="day-tab active" id="dtab-1" onclick="switchDay(1)">
+        <span class="day-tab-num">DAY 1</span>
+        <span class="day-tab-date">9.10(목)</span>
+      </div>
+      <div class="day-tab" id="dtab-2" onclick="switchDay(2)">
+        <span class="day-tab-num">DAY 2</span>
+        <span class="day-tab-date">9.11(금)</span>
+      </div>
+    </div>
+
+    <!-- Day 1 -->
+    <div id="day-1" class="schedule-card">
+      <div class="schedule-row">
+        <div class="schedule-time">11:00~12:00<div class="schedule-min">60분</div></div>
+        <div class="schedule-body">
+          <div class="schedule-title">과정소개 및 참가자 네트워킹</div>
+        </div>
+      </div>
+      <div class="schedule-row meal">
+        <div class="schedule-time">12:00~13:00<div class="schedule-min">60분</div></div>
+        <div class="schedule-body"><div class="schedule-title">🍽 점심식사</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">13:00~14:30<div class="schedule-min">90분</div></div>
+        <div class="schedule-body">
+          <div class="schedule-title">기술사업화 정책·제도의 이해 <span class="schedule-tag" style="background:#e8eef6;color:#1a365d;">정책이해</span></div>
+          <div class="schedule-desc">• 국가 기술이전·사업화 정책 흐름<br>• 공공연구성과 활용 지원제도 및 사업 구조</div>
+        </div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">14:30~16:00<div class="schedule-min">90분</div></div>
+        <div class="schedule-body">
+          <div class="schedule-title">기술가치평가 방법론 <span class="schedule-tag" style="background:#e8f0ff;color:#003366;">방법론</span></div>
+          <div class="schedule-desc">• 기술의 시장가치 진단 관점<br>• 정성·정량 평가 접근과 이전 협상 근거 마련</div>
+        </div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">16:00~17:30<div class="schedule-min">90분</div></div>
+        <div class="schedule-body">
+          <div class="schedule-title">AI 활용 수요기업 발굴·기술마케팅 <span class="schedule-tag" style="background:#e8f4f6;color:#0c4a5e;">생성형 AI 활용</span></div>
+          <div class="schedule-desc">• 수요기업 탐색과 기술마케팅 전략<br>• AI 도구를 활용한 시장·기업 정보 분석</div>
+        </div>
+      </div>
+      <div class="schedule-row meal">
+        <div class="schedule-time">17:30~<div class="schedule-min">-</div></div>
+        <div class="schedule-body"><div class="schedule-title">🍽 저녁식사</div></div>
+      </div>
+    </div>
+
+    <!-- Day 2 -->
+    <div id="day-2" class="schedule-card" style="display:none;">
+      <div class="schedule-row meal">
+        <div class="schedule-time">7:00~9:00<div class="schedule-min">-</div></div>
+        <div class="schedule-body"><div class="schedule-title">🍳 아침식사 및 2일차 등록</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">9:00~12:00<div class="schedule-min">150분</div></div>
+        <div class="schedule-body">
+          <div class="schedule-title">기술사업화 추진계획(안) 작성 실습 <span class="schedule-tag" style="background:#fdf6e3;color:#6b4c00;">조별토론/모의실습</span></div>
+          <div class="schedule-desc">• 대상기술 선정 및 문제정의<br>• 이전전략·사업화 로드맵 초안 도출</div>
+        </div>
+      </div>
+      <div class="schedule-row meal">
+        <div class="schedule-time">12:00~13:00<div class="schedule-min">60분</div></div>
+        <div class="schedule-body"><div class="schedule-title">🍽 점심식사</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">13:00~14:00<div class="schedule-min">60분</div></div>
+        <div class="schedule-body">
+          <div class="schedule-title">추진계획 발표 및 전문가 피드백 <span class="schedule-tag" style="background:#eef6e8;color:#2d5016;">피드백</span></div>
+          <div class="schedule-desc">• 조별 추진계획(안) 발표<br>• 전문가 피드백 및 사업화 고도화 방안 도출</div>
+        </div>
+      </div>
+      <div class="schedule-row meal">
+        <div class="schedule-time">14:00~14:10<div class="schedule-min">10분</div></div>
+        <div class="schedule-body"><div class="schedule-title">📝 설문조사 및 교육종료</div></div>
+      </div>
+    </div>
+
+    <div class="note-box" style="margin-top:12px;">
+      ※ 상기 내용은 사정에 따라 변경될 수 있습니다.
+    </div>
+  </div>
+
+  <!-- ── TAB: 교통안내 ── -->
+  <div id="tab-access" class="tab-panel">
+
+    <!-- 주소 -->
+    <div class="section-hd">
+      <h2>📍 교육장소</h2>
+      <div class="section-hd-line"></div>
+    </div>
+    <div class="info-card">
+      <div class="info-row">
+        <span class="info-label">장소명</span>
+        <span class="info-value" style="font-weight:700;">(충북) KIRD 국가과학기술인력개발원 본원</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">주소</span>
+        <span class="info-value">충북 청주시 흥덕구 오송읍 오송생명2로 187</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">전화</span>
+        <span class="info-value"><a href="tel:043-251-7000" class="contact-link" style="font-size:13px;">📞 043-251-7000</a></span>
+      </div>
+    </div>
+
+    <!-- KTX -->
+    <div class="section-hd">
+      <h2>🚄 KTX 이용</h2>
+      <div class="section-hd-line"></div>
+    </div>
+    <div class="transport-card">
+      <div class="transport-header">하차역 안내</div>
+      <div class="transport-row">
+        <span class="transport-from">오송역</span>
+        <span class="transport-info">KTX·SRT &nbsp;|&nbsp; 3번 출구 &nbsp;|&nbsp; 택시 약 10분</span>
+      </div>
+    </div>
+
+    <!-- 승용차·택시 -->
+    <div class="section-hd">
+      <h2>🚗 자가용 또는 택시 이용</h2>
+      <div class="section-hd-line"></div>
+    </div>
+    <div class="transport-card">
+      <div class="transport-header">출발지별 이동 안내</div>
+      <div class="transport-row">
+        <span class="transport-from">오송역</span>
+        <span class="transport-info">약 4km &nbsp;|&nbsp; 약 10분 소요</span>
+      </div>
+      <div class="transport-row">
+        <span class="transport-from">청주공항</span>
+        <span class="transport-info">약 18km &nbsp;|&nbsp; 약 25분 소요</span>
+      </div>
+      <div class="transport-row">
+        <span class="transport-from">대전역</span>
+        <span class="transport-info">약 30km &nbsp;|&nbsp; 약 40분 소요</span>
+      </div>
+    </div>
+
+    <!-- 시설 안내 -->
+    <div class="section-hd">
+      <h2>🏨 시설 안내</h2>
+      <div class="section-hd-line"></div>
+    </div>
+    <div class="info-card">
+      <div class="info-row">
+        <span class="info-label">객실구성</span>
+        <span class="info-value">1인 1실 (침실 1, 욕실 1)</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">구비물품</span>
+        <span class="info-value">샴푸, 린스, 바디워시, 헤어드라이어 등<br><span style="font-size:12px;color:var(--red);font-weight:600;">※ 칫솔, 치약은 개별 지참</span></span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">편의시설</span>
+        <span class="info-value">교육장, 식당, 라운지 등</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── TAB: 참가안내 ── -->
+  <div id="tab-info" class="tab-panel">
+
+    <!-- 참가 준비 -->
+    <div class="section-hd">
+      <h2>🎒 참가 준비</h2>
+      <div class="section-hd-line"></div>
+    </div>
+    <div class="info-card">
+      <div class="info-row">
+        <span class="info-label">복장</span>
+        <span class="info-value">교육 분위기를 저해하지 않는 자유로운 복장 <strong>(비즈니스 캐쥬얼 권장)</strong></span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">준비물</span>
+        <span class="info-value"><strong>명함 30장 이상</strong>, 개인 노트북(실습용), 개인 세면도구, 여벌의류, 개인 복용약 등</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">기타</span>
+        <span class="info-value">지병 등 교육과정 운영자가 참고할 사항은 반드시 전달 부탁드립니다.<br><span style="font-size:12px;color:var(--text-muted);">(예: 특정 식품 및 환경에 대한 알레르기 질환, 휠체어 사용여부 등)</span></span>
+      </div>
+    </div>
+
+    <!-- 교육수료 -->
+    <div class="section-hd">
+      <h2>🎓 교육수료</h2>
+      <div class="section-hd-line"></div>
+    </div>
+    <div class="schedule-card">
+      <ul class="rule-list">
+        <li class="rule-item"><span class="rule-icon">✅</span><strong>교육시간의 참석률 80% 이상, 설문조사 완료 시 수료</strong>이며, 80% 미만 시 자동 미수료 처리됩니다.</li>
+        <li class="rule-item"><span class="rule-icon">📱</span>교육만족도 설문조사는 교육종료 후, 문자(SMS)를 통해 발송됩니다.</li>
+        <li class="rule-item"><span class="rule-icon">⚠️</span>교육기간 중 불참 사유 발생 시 반드시 교육과정 운영자와 사전 협의 바랍니다. <strong>(허가원 작성 必)</strong></li>
+        <li class="rule-item"><span class="rule-icon">📄</span>수료증은 교육종료 후 KIRD 알파캠퍼스 로그인 → 마이페이지에서 확인 및 출력 가능합니다.</li>
+      </ul>
+    </div>
+
+    <!-- 참고사항 -->
+    <div class="section-hd">
+      <h2>📋 참고사항</h2>
+      <div class="section-hd-line"></div>
+    </div>
+    <div class="schedule-card">
+      <ul class="rule-list">
+        <li class="rule-item"><span class="rule-icon">🕐</span>매 교육 시작 및 종료 시 출석 관리를 실시합니다.</li>
+        <li class="rule-item"><span class="rule-icon">⚠️</span>교육에 몰입할 수 있는 환경 조성을 위해 협조 부탁드리며 지각, 자리 이석(무단 이탈) 등 교육 진행에 지장을 초래할 수 있는 태도는 삼가해 주시기 바랍니다.</li>
+      </ul>
+    </div>
+
+    <!-- 교육변경 및 취소, 환불 -->
+    <div class="section-hd">
+      <h2>📝 교육변경 및 취소, 교육비 환불 기준</h2>
+      <div class="section-hd-line"></div>
+    </div>
+    <div class="schedule-card">
+      <ul class="rule-list">
+        <li class="rule-item"><span class="rule-icon">🖥</span>교육 변경 및 취소는 알파캠퍼스 홈페이지를 통해 가능합니다.<br><span style="font-size:12px;color:var(--text-muted);">※ 교육비 환불은 KIRD 규정에 따르며 취소일에 따라 환불금이 다릅니다.</span></li>
+        <li class="rule-item"><span class="rule-icon">💰</span>교육 개시 전일(워킹데이 기준) 18시 <strong>이전</strong> 취소 : <strong style="color:var(--green);">전액 환불</strong></li>
+        <li class="rule-item"><span class="rule-icon">💸</span>교육 개시 전일(워킹데이 기준) 18시 <strong>이후</strong> 취소 ~ 교육 당일 시작 전 : <strong style="color:var(--orange);">1일 교육비 징수</strong></li>
+        <li class="rule-item"><span class="rule-icon">⚠️</span>교육 시작 후 취소 시, 취소일까지 <strong style="color:var(--red);">일할 계산하여 교육비 징수</strong></li>
+      </ul>
+    </div>
+
+    <!-- 문의처 -->
+    <div class="section-hd">
+      <h2>📞 문의처</h2>
+      <div class="section-hd-line"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-avatar">홍</div>
+        <div>
+          <div class="contact-role">교육대상 및 내용</div>
+          <div class="contact-name">홍길동</div>
+          <div class="contact-links">
+            <a href="tel:043-251-7047" class="contact-link">📞 043-251-7047</a>
+            <a href="mailto:sample@kird.re.kr" class="contact-link">✉ sample@kird.re.kr</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-avatar">김</div>
+        <div>
+          <div class="contact-role">교육운영 및 입과</div>
+          <div class="contact-name">김운영</div>
+          <div class="contact-links">
+            <a href="tel:043-251-7192" class="contact-link">📞 043-251-7192</a>
+            <a href="mailto:sample2@kird.re.kr" class="contact-link">✉ sample2@kird.re.kr</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-avatar">알</div>
+        <div>
+          <div class="contact-role">알파캠퍼스</div>
+          <div class="contact-name">학습지원센터</div>
+          <div class="contact-links">
+            <a href="tel:1588-5834" class="contact-link">📞 1588-5834</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 교육후기 -->
+    <div class="section-hd">
+      <h2>💬 교육후기</h2>
+      <div class="section-hd-line"></div>
+    </div>
+    <p class="review-subtitle">이전 기수 교육생들의 한 줄 후기입니다. (샘플 예시)</p>
+
+    <div class="review-card" style="border-left-color:#2c5f8a;">
+      <div class="review-tagline">기술가치평가 방법론</div>
+      <div class="review-text">막연했던 기술가치 산정을 실제 사례로 배우니, 이전 협상에서 근거를 갖고 설명할 수 있게 되었음.</div>
+      <div class="review-author">
+        <div class="review-avatar" style="background:#2c5f8a;">A</div>
+        <div class="review-meta">
+          <div class="name">A 연구원</div>
+          <div class="org">정부출연연구기관 TLO</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card" style="border-left-color:#c9a84c;">
+      <div class="review-tagline">기술사업화 정책·제도의 이해</div>
+      <div class="review-text">흩어져 있던 지원제도와 사업 구조를 한번에 정리할 수 있어, 어떤 사업에 무엇을 연결할지 감이 잡혔음.</div>
+      <div class="review-author">
+        <div class="review-avatar" style="background:#c9a84c;">B</div>
+        <div class="review-meta">
+          <div class="name">B 선임</div>
+          <div class="org">대학 산학협력단</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card" style="border-left-color:#2d7a4f;">
+      <div class="review-tagline">AI 활용 수요기업 발굴·기술마케팅</div>
+      <div class="review-text">AI로 수요기업을 탐색하는 방식이 실무에 바로 적용 가능해 유익했음.</div>
+      <div class="review-author">
+        <div class="review-avatar" style="background:#2d7a4f;">C</div>
+        <div class="review-meta">
+          <div class="name">C 연구원</div>
+          <div class="org">공공연구기관 기술사업화팀</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note-box" style="margin-top:10px;">
+      ※ 상기 후기는 샘플 예시로 작성된 것으로, 실제 응답이 아닙니다.
+    </div>
+
+  </div>
+
+  <!-- ── TAB: 수강신청 ── -->
+  <div id="tab-register" class="tab-panel">
+
+    <!-- 신청 기한 -->
+    <div class="alert-section">
+      <div class="alert-title">⏰ 신청 및 납부 기한</div>
+      <div class="alert-card" style="border-left-color:#c0392b;">
+        <span class="alert-icon">📝</span>
+        <div class="alert-body">
+          <div class="alert-main">교육 신청기간 : ~ 8. 28.(금) 18:00까지</div>
+          <div class="alert-sub">교육신청은 알파캠퍼스 가입 후 가능합니다</div>
+        </div>
+      </div>
+      <div class="alert-card" style="border-left-color:#c47a1a;">
+        <span class="alert-icon">💳</span>
+        <div class="alert-body">
+          <div class="alert-main">교육비 납부 기한 : ~ 9. 4.(금) 18:00까지</div>
+          <div class="alert-sub">※ 교육비 납부자에 한해 입과 확정</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-hd">
+      <h2>✅ 수강신청 안내</h2>
+      <div class="section-hd-line"></div>
+    </div>
+
+    <div class="reg-steps">
+      <div class="reg-step">
+        <div class="reg-num">1</div>
+        <div class="reg-step-body">
+          <div class="reg-step-title">알파캠퍼스 접속 및 회원가입·로그인</div>
+          <div class="reg-step-desc"><a href="https://alpha-campus.kr" target="_blank" style="color:var(--blue-mid);">www.alpha-campus.kr</a> 접속 후 회원가입 및 로그인</div>
+        </div>
+      </div>
+      <div class="reg-step">
+        <div class="reg-num">2</div>
+        <div class="reg-step-body">
+          <div class="reg-step-title">'교육과정' 검색</div>
+          <div class="reg-step-desc">상단 검색창에서 <strong>"연구성과 기술사업화 실무 과정"</strong> 검색</div>
+        </div>
+      </div>
+      <div class="reg-step">
+        <div class="reg-num">3</div>
+        <div class="reg-step-body">
+          <div class="reg-step-title">희망 '교육과정' 클릭</div>
+          <div class="reg-step-desc">검색 결과에서 해당 과정을 선택합니다</div>
+        </div>
+      </div>
+      <div class="reg-step">
+        <div class="reg-num">4</div>
+        <div class="reg-step-body">
+          <div class="reg-step-title">'수강신청' 클릭</div>
+          <div class="reg-step-desc">과정 상세 페이지에서 수강신청 버튼을 클릭합니다</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;text-align:center;">
+      <a href="https://alpha-campus.kr" target="_blank" style="display:inline-block;background:var(--blue-mid);color:#fff;font-size:14px;font-weight:700;padding:13px 32px;border-radius:8px;text-decoration:none;letter-spacing:0.5px;">
+        알파캠퍼스 바로가기 →
+      </a>
+    </div>
+
+    <!-- 교육비 납부 -->
+    <div class="section-hd">
+      <h2>💳 교육비 납부 안내</h2>
+      <div class="section-hd-line"></div>
+    </div>
+    <div class="info-card">
+      <div class="info-row">
+        <span class="info-label">비용</span>
+        <span class="info-value" style="font-weight:700;">300,000원 <span style="color:var(--green);">(4식 및 숙박 제공)</span></span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">공통</span>
+        <span class="info-value">알파캠퍼스 로그인 → 상단 학습란 → <strong>결제이력</strong> 클릭 → <strong>결제</strong> 버튼 클릭</span>
+      </div>
+    </div>
+
+    <div class="transport-card" style="margin-top:12px;">
+      <div class="transport-header">결제방법별 안내</div>
+      <div class="transport-row">
+        <span class="transport-from">무통장입금</span>
+        <span class="transport-info">교육비 결제방법에서 <strong>가상계좌(무통장입금)</strong> 선택 → 환불계좌 정보 입력 후 결제 버튼 클릭</span>
+      </div>
+      <div class="transport-row">
+        <span class="transport-from">신용카드</span>
+        <span class="transport-info">교육비 결제방법에서 <strong>신용카드</strong> 선택 → 결제 버튼 클릭</span>
+      </div>
+      <div class="transport-row">
+        <span class="transport-from">전자세금계산서</span>
+        <span class="transport-info">교육비 결제방법에서 <strong>전자계산서</strong> 선택 → 계산서 발행정보 입력 → 발행 신청 클릭<br><span style="font-size:12px;color:var(--text-muted);">※ 한 기관에서 단체로 전자세금계산서 발행이 필요한 경우, 전자세금계산서 선택 후 KIRD 교육비 담당자에게 별도 연락</span></span>
+      </div>
+    </div>
+
+    <div class="note-box" style="margin-top:12px;">
+      <strong>수강신청 전 확인사항</strong><br>
+      • 교육비 환불은 KIRD 규정에 따르며 취소일에 따라 환불금이 다릅니다.<br>
+      • 세금계산서 발행 문의 : 043-251-7044 / hykim@kird.re.kr
+    </div>
+
+    <div class="disclaimer">
+      본 안내문의 내용은 추후 변경될 수 있습니다.<br>
+      최신 정보는 <a href="https://alpha-campus.kr" target="_blank" style="color:var(--blue-mid);">알파캠퍼스</a>를 통해 확인하시기 바랍니다.<br><br>
+      주관: <strong>과학기술정보통신부</strong> &nbsp;·&nbsp; <strong>국가과학기술인력개발원(KIRD)</strong>
+    </div>
+
+  </div>
+
+</main>
+
+<script>
+function switchTab(id) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function switchDay(n) {
+  for (var i = 1; i <= 2; i++) {
+    var dc = document.getElementById('day-' + i);
+    var dt = document.getElementById('dtab-' + i);
+    if (dc) dc.style.display = (i === n) ? 'block' : 'none';
+    if (dt) dt.classList.toggle('active', i === n);
+  }
+}
+</script>
+</body>
+</html>
