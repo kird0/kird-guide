@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[연구관리전문기관] 성과관리 과정(2기) 참가안내문</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  /* ===================== Base ===================== */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f7f6f3;
+    color: #1a1a1a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body { min-height: 100vh; }
+
+  .app {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #fff;
+    min-height: 100vh;
+    box-shadow: 0 0 40px rgba(0,0,0,0.04);
+  }
+
+  /* ===================== Header ===================== */
+  header.hero {
+    background: linear-gradient(135deg, #2c5f8a 0%, #3a7cb8 40%, #c9a84c 100%);
+    padding: 40px 28px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  header.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 30%, rgba(255,255,255,0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; }
+  .eyebrow {
+    font-size: 11px;
+    color: rgba(255,255,255,0.78);
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    margin-bottom: 10px;
+  }
+  .hero h1 {
+    color: #fff;
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+  }
+  .hero-sub {
+    color: rgba(255,255,255,0.85);
+    font-size: 13px;
+    margin-top: 6px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+  }
+  .hero-tags {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .hero-tag {
+    background: rgba(255,255,255,0.20);
+    color: #fff;
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 14px;
+    font-weight: 500;
+    backdrop-filter: blur(4px);
+  }
+  .hero-tag.year {
+    background: rgba(255,255,255,0.28);
+    font-weight: 700;
+  }
+
+  /* ===================== Nav Tabs ===================== */
+  nav.tabs {
+    display: flex;
+    background: #fff;
+    border-bottom: 1px solid #e8e4dc;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  nav.tabs button {
+    flex: 1;
+    padding: 15px 4px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 400;
+    color: #888;
+    border-bottom: 3px solid transparent;
+    font-family: inherit;
+    transition: all 0.18s ease;
+  }
+  nav.tabs button .ic { margin-right: 5px; }
+  nav.tabs button.active {
+    font-weight: 700;
+    color: #2c5f8a;
+    border-bottom-color: #2c5f8a;
+  }
+
+  /* ===================== Main ===================== */
+  main { padding: 24px 22px 48px; }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 28px 0 14px;
+    font-size: 17px;
+    font-weight: 800;
+    color: #1a1a1a;
+  }
+  .section-title:first-child { margin-top: 4px; }
+  .section-title .bar {
+    width: 4px;
+    height: 18px;
+    background: linear-gradient(to bottom, #2c5f8a, #c9a84c);
+    border-radius: 2px;
+  }
+  .section-subtitle {
+    font-size: 12px;
+    color: #999;
+    margin: -6px 0 14px;
+    line-height: 1.5;
+  }
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #e8e4dc, transparent);
+    margin: 28px 0 4px;
+  }
+
+  /* ===================== Cards ===================== */
+  .card {
+    background: #fff;
+    border: 1px solid #ece7dd;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(28,40,60,0.03);
+    margin-bottom: 14px;
+  }
+  .card.shaded { background: #fafaf6; }
+
+  .overview-list {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    gap: 10px 14px;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .overview-list .k {
+    color: #2c5f8a;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+  }
+  .overview-list .v { color: #333; }
+  .overview-list .v strong { color: #c0392b; font-weight: 700; }
+
+  /* ===================== Day tabs ===================== */
+  .day-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .day-tabs button {
+    border: 1px solid #e1ddd2;
+    background: #fff;
+    color: #666;
+    padding: 9px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.18s;
+  }
+  .day-tabs button.active {
+    background: #2c5f8a;
+    color: #fff;
+    border-color: #2c5f8a;
+    box-shadow: 0 4px 12px rgba(44,95,138,0.25);
+  }
+
+  /* ===================== Schedule table ===================== */
+  .schedule {
+    border: 1px solid #ece7dd;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .schedule-row {
+    display: grid;
+    grid-template-columns: 110px 1fr 90px;
+    border-bottom: 1px solid #f0ebe0;
+    background: #fff;
+  }
+  .schedule-row:last-child { border-bottom: none; }
+  .schedule-row.head {
+    background: #f4f1ea;
+    font-size: 12px;
+    font-weight: 700;
+    color: #5a4a1e;
+    letter-spacing: 0.4px;
+  }
+  .schedule-row.head > div { padding: 10px 12px; text-align: center; }
+  .schedule-row .time {
+    padding: 14px 12px;
+    font-size: 12px;
+    color: #2c5f8a;
+    font-weight: 700;
+    background: #f8f7f2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-right: 1px solid #f0ebe0;
+  }
+  .schedule-row .time .dur {
+    font-size: 10px; color: #999; font-weight: 500; margin-top: 2px;
+  }
+  .schedule-row .content {
+    padding: 14px 14px;
+    font-size: 13.5px;
+    color: #1a1a1a;
+  }
+  .schedule-row .content .title { font-weight: 700; margin-bottom: 4px; }
+  .schedule-row .content .desc {
+    font-size: 12px; color: #666; line-height: 1.55; margin-top: 4px;
+  }
+  .schedule-row .content .desc li {
+    list-style: none; padding-left: 10px; position: relative;
+  }
+  .schedule-row .content .desc li::before {
+    content: "·"; position: absolute; left: 0; color: #c9a84c; font-weight: 900;
+  }
+  .schedule-row.meal .content { color: #888; font-size: 12.5px; }
+  .schedule-row .tag {
+    padding: 14px 8px;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-left: 1px solid #f0ebe0;
+  }
+  .schedule-row .tag .pill {
+    background: #e8eef6;
+    color: #2c5f8a;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .schedule-row.meal .tag { background: #fafaf6; }
+
+  .note-asterisk {
+    font-size: 11px; color: #999;
+    margin-top: 10px; text-align: right;
+  }
+
+  /* ===================== Info bullets ===================== */
+  ul.info-list { list-style: none; }
+  ul.info-list li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 4px;
+  }
+  ul.info-list li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 9px;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #c9a84c;
+  }
+  ul.info-list li strong { color: #c0392b; font-weight: 700; }
+  ul.info-list li .key { color: #2c5f8a; font-weight: 700; }
+
+  .callout {
+    background: #fdf6e3;
+    border-left: 4px solid #c9a84c;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 12.5px;
+    color: #6b4c00;
+    line-height: 1.6;
+    margin-top: 10px;
+  }
+  .callout.warn {
+    background: #fdecea;
+    border-left-color: #e74c3c;
+    color: #a04135;
+  }
+
+  /* ===================== Pre-learning link ===================== */
+  .prelearn-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+    padding: 14px 16px;
+    background: linear-gradient(135deg, #f8f7f2 0%, #fdf6e3 100%);
+    border: 1px solid #ece7dd;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .prelearn-link:hover {
+    border-color: #c9a84c;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(201,168,76,0.18);
+  }
+  .prelearn-ic {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid #ece7dd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .prelearn-text { flex: 1; display: flex; flex-direction: column; }
+  .prelearn-label {
+    font-size: 13px;
+    font-weight: 800;
+    color: #2c5f8a;
+    line-height: 1.3;
+  }
+  .prelearn-sub {
+    font-size: 11.5px;
+    color: #888;
+    margin-top: 2px;
+  }
+  .prelearn-arrow {
+    font-size: 18px;
+    color: #c9a84c;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* Contact */
+  .contacts { display: grid; gap: 10px; }
+  .contact {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4px 12px;
+    padding: 12px 14px;
+    background: #f8f7f2;
+    border-radius: 10px;
+    align-items: center;
+  }
+  .contact .role {
+    font-size: 12.5px;
+    color: #2c5f8a;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+  }
+  .contact .name {
+    font-size: 14px; font-weight: 700; color: #1a1a1a; margin-top: 1px;
+  }
+  .contact .tel {
+    font-size: 13px;
+    font-weight: 700;
+    color: #2c5f8a;
+    text-align: right;
+    text-decoration: none;
+  }
+  .contact .email {
+    grid-column: 1 / -1;
+    font-size: 11.5px;
+    color: #888;
+    border-top: 1px dashed #e1ddd2;
+    padding-top: 8px;
+    margin-top: 4px;
+    text-decoration: none;
+  }
+
+  /* ===================== Five-day system (차량 5부제) ===================== */
+  .fiveday-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .fiveday-card {
+    background: #fff;
+    border: 1px solid #ece7dd;
+    border-top: 3px solid #2c5f8a;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+  }
+  .fiveday-card .day-label {
+    font-size: 11px;
+    color: #777;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin-bottom: 4px;
+  }
+  .fiveday-card .day-date {
+    font-size: 13px;
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .fiveday-card .restrict-label {
+    font-size: 10.5px;
+    color: #888;
+    margin-bottom: 6px;
+  }
+  .fiveday-card .restrict {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+  }
+  .fiveday-card .digit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: #fdecea;
+    color: #c0392b;
+    font-weight: 800;
+    font-size: 15px;
+    border-radius: 50%;
+    border: 1.5px solid #f5c6c0;
+  }
+  .exempt-card {
+    background: #fafaf6;
+    border: 1px solid #ece7dd;
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+  .exempt-card h5 {
+    font-size: 13px;
+    color: #2c5f8a;
+    font-weight: 800;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .exempt-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 14px;
+    list-style: none;
+  }
+  .exempt-list li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 12.5px;
+    color: #444;
+    line-height: 1.7;
+  }
+  .exempt-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0; top: 0;
+    color: #2d5016;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  /* ===================== Reviews ===================== */
+  .review-card {
+    background: #fff;
+    border: 1px solid #ece7dd;
+    border-left-width: 3px;
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 6px rgba(28,40,60,0.03);
+  }
+  .review-text {
+    font-size: 13.5px;
+    color: #333;
+    line-height: 1.65;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 4px;
+  }
+  .review-text::before {
+    content: "“";
+    color: #c9a84c;
+    font-size: 22px;
+    font-weight: 900;
+    margin-right: 2px;
+    font-family: Georgia, serif;
+    line-height: 0.4;
+    vertical-align: -4px;
+  }
+  .review-author { display: flex; align-items: center; gap: 10px; }
+  .avatar {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 13px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .review-meta .name {
+    font-size: 13px; font-weight: 700; color: #1a1a1a; line-height: 1.3;
+  }
+  .review-meta .org { font-size: 11px; color: #999; margin-top: 1px; }
+
+  /* ===================== Access ===================== */
+  .addr-card {
+    background: linear-gradient(135deg, #1b2d45 0%, #2c5f8a 100%);
+    color: #fff;
+    border-radius: 14px;
+    padding: 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .addr-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 90% 20%, rgba(201,168,76,0.18) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .addr-card .label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .addr-card .name { font-size: 18px; font-weight: 800; margin-bottom: 14px; }
+  .addr-card .row {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 8px;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 6px;
+  }
+  .addr-card .row .k { color: #c9a84c; font-weight: 700; }
+  .addr-card .row .v { color: rgba(255,255,255,0.92); }
+
+  .route-block { margin-top: 4px; }
+  .route-block h4 {
+    font-size: 13px;
+    font-weight: 800;
+    color: #2c5f8a;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #e8e4dc;
+  }
+  .route-block h4 .ic { margin-right: 6px; }
+  .route-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 10px;
+    font-size: 12.5px;
+    line-height: 1.65;
+    padding: 10px 0;
+    border-bottom: 1px dashed #ece7dd;
+  }
+  .route-row:last-child { border-bottom: none; }
+  .route-row .from { font-weight: 700; color: #1a1a1a; }
+  .route-row .desc { color: #555; }
+  .route-row .desc .ar { color: #c9a84c; margin: 0 4px; font-weight: 700; }
+
+  .transit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 4px;
+  }
+  .transit-card {
+    background: #f8f7f2;
+    border: 1px solid #ece7dd;
+    border-radius: 10px;
+    padding: 12px;
+  }
+  .transit-card h5 {
+    font-size: 12px;
+    color: #2c5f8a;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+  }
+  .transit-card .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    padding: 4px 0;
+    border-bottom: 1px dotted #e1ddd2;
+  }
+  .transit-card .item:last-child { border-bottom: none; }
+  .transit-card .item .place { color: #333; }
+  .transit-card .item .time { color: #c0392b; font-weight: 700; }
+  .transit-card .note {
+    font-size: 10.5px;
+    color: #888;
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px dashed #e1ddd2;
+  }
+
+  /* Shuttle */
+  .shuttle { position: relative; padding-left: 24px; }
+  .shuttle::before {
+    content: "";
+    position: absolute;
+    left: 7px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, #2c5f8a, #c9a84c);
+  }
+  .shuttle-step { position: relative; padding-bottom: 18px; }
+  .shuttle-step:last-child { padding-bottom: 0; }
+  .shuttle-step::before {
+    content: "";
+    position: absolute;
+    left: -24px; top: 4px;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: #2c5f8a;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 1px #2c5f8a;
+  }
+  .shuttle-step:last-child::before {
+    background: #c9a84c;
+    box-shadow: 0 0 0 1px #c9a84c;
+  }
+  .shuttle-time {
+    font-size: 14px; font-weight: 800; color: #c0392b; margin-bottom: 2px;
+  }
+  .shuttle-place {
+    font-size: 13.5px; font-weight: 700; color: #1a1a1a; margin-bottom: 3px;
+  }
+  .shuttle-desc { font-size: 12px; color: #666; line-height: 1.55; }
+  .shuttle-desc .badge {
+    display: inline-block;
+    font-size: 10.5px;
+    background: #e8eef6;
+    color: #2c5f8a;
+    padding: 2px 7px;
+    border-radius: 8px;
+    margin-top: 4px;
+    font-weight: 600;
+  }
+  /* 오창프라자 정류장: 강조 약화 (조건부 경유지) */
+  .shuttle-step.weak::before {
+    background: #fff;
+    border: 2px solid #b8bcc4;
+    box-shadow: 0 0 0 1px #b8bcc4;
+  }
+  .shuttle-step.weak .shuttle-time {
+    color: #888;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .shuttle-step.weak .shuttle-place {
+    color: #666;
+    font-weight: 500;
+    font-size: 13px;
+  }
+  .shuttle-step.weak .shuttle-desc { color: #888; }
+  .shuttle-step.weak .badge {
+    background: #f4f1ea;
+    color: #888;
+    font-weight: 500;
+  }
+
+  /* Shuttle reference photo */
+  .shuttle-photo {
+    margin-top: 10px;
+    border: 1px solid #ece7dd;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+  }
+  .shuttle-photo .photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: #ece7dd;
+  }
+  .shuttle-photo .photo-item {
+    position: relative;
+    background: #fff;
+    overflow: hidden;
+    aspect-ratio: 6 / 5;
+  }
+  .shuttle-photo .photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .shuttle-photo .photo-label {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+    background: rgba(26,26,26,0.78);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 9px;
+    border-radius: 999px;
+    backdrop-filter: blur(4px);
+    letter-spacing: 0.2px;
+  }
+  .shuttle-photo .caption {
+    font-size: 11px;
+    color: #888;
+    padding: 8px 12px;
+    background: #fafaf6;
+    border-top: 1px solid #ece7dd;
+    line-height: 1.5;
+  }
+  .shuttle-photo .caption strong {
+    color: #2c5f8a;
+    font-weight: 700;
+  }
+
+  /* Facility */
+  .facility-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .facility-card {
+    background: #fafaf6;
+    border: 1px solid #ece7dd;
+    border-radius: 12px;
+    padding: 14px;
+  }
+  .facility-card.full { grid-column: 1 / -1; }
+  .facility-card h5 {
+    font-size: 13px;
+    color: #2c5f8a;
+    font-weight: 800;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .facility-card ul { list-style: none; }
+  .facility-card ul li {
+    position: relative;
+    padding-left: 12px;
+    font-size: 12.5px;
+    color: #444;
+    line-height: 1.7;
+  }
+  .facility-card ul li::before {
+    content: "·";
+    position: absolute;
+    left: 2px; top: -2px;
+    color: #c9a84c;
+    font-size: 16px;
+    font-weight: 900;
+  }
+  .facility-card ul li strong { color: #c0392b; font-weight: 700; }
+  .facility-card .timetable {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .facility-card .timetable .meal {
+    background: #fff;
+    border: 1px solid #ece7dd;
+    border-radius: 8px;
+    padding: 10px 6px;
+    text-align: center;
+  }
+  .facility-card .timetable .meal .label {
+    font-size: 11px;
+    color: #888;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .facility-card .timetable .meal .hour {
+    font-size: 12.5px;
+    color: #2c5f8a;
+    font-weight: 700;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 20px 16px;
+    font-size: 11px;
+    color: #aaa;
+    border-top: 1px solid #eee;
+    background: #fafaf6;
+  }
+  footer strong { color: #2c5f8a; font-weight: 700; }
+
+  /* Responsive */
+  @media (max-width: 540px) {
+    .app { box-shadow: none; }
+    header.hero { padding: 32px 20px 26px; }
+    .hero h1 { font-size: 22px; }
+    main { padding: 20px 16px 40px; }
+    nav.tabs button { font-size: 12px; padding: 14px 2px; }
+    .card { padding: 16px; border-radius: 12px; }
+
+    .overview-list {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+    .overview-list .k {
+      font-size: 11px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .overview-list .v {
+      font-size: 13.5px;
+      padding-bottom: 8px;
+      border-bottom: 1px dashed #ece7dd;
+      margin-bottom: 4px;
+    }
+    .overview-list .v.last { border-bottom: none; }
+
+    .schedule-row.head { display: none; }
+    .schedule-row {
+      grid-template-columns: 1fr;
+      padding: 0;
+      border-bottom: 1px solid #f0ebe0;
+    }
+    .schedule-row .time {
+      flex-direction: row;
+      gap: 8px;
+      padding: 10px 14px;
+      background: #f4f1ea;
+      border-right: none;
+      border-bottom: 1px solid #ece7dd;
+      justify-content: flex-start;
+      align-items: center;
+      font-size: 12px;
+    }
+    .schedule-row .time .dur {
+      margin-top: 0; font-size: 11px; color: #888;
+    }
+    .schedule-row .content { padding: 12px 14px 4px; }
+    .schedule-row .tag {
+      padding: 4px 14px 12px;
+      border-left: none;
+      justify-content: flex-start;
+    }
+    .schedule-row .tag:empty { display: none; }
+    .schedule-row.meal .tag { display: none; }
+    .schedule-row.meal .time { background: #f8f7f2; }
+
+    .contact { grid-template-columns: 1fr; }
+    .contact .tel { text-align: left; font-size: 14px; margin-top: 2px; }
+
+    .transit-grid { grid-template-columns: 1fr; }
+    .route-row { grid-template-columns: 1fr; gap: 2px; }
+    .route-row .from { font-size: 12px; color: #2c5f8a; }
+
+    .facility-grid { grid-template-columns: 1fr; }
+
+    .fiveday-grid { grid-template-columns: 1fr; }
+    .exempt-list { grid-template-columns: 1fr; }
+
+    .shuttle-photo .photo-grid {
+      grid-template-columns: 1fr;
+    }
+    .shuttle-photo .photo-item {
+      aspect-ratio: auto;
+    }
+    .shuttle-photo .photo-item img {
+      height: auto;
+      object-fit: contain;
+    }
+
+    .addr-card .row { grid-template-columns: 50px 1fr; font-size: 12.5px; }
+  }
+
+  @media (max-width: 380px) {
+    .hero h1 { font-size: 20px; }
+    .facility-card .timetable { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    nav.tabs { display: none; }
+    .tab-panel { display: block !important; }
+    header.hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; animation: fadeIn 0.25s ease; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ====================== HEADER ====================== -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">KIRD 기본교육 · 연구관리전문기관</div>
+      <h1>성과관리 과정 (2기)</h1>
+      <div class="hero-sub">참가안내문 · Korea Institute of Human Resources Development in Science and Technology</div>
+      <div class="hero-tags">
+        <span class="hero-tag">#연구관리직</span>
+        <span class="hero-tag">#성과관리</span>
+        <span class="hero-tag year">2026</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====================== TABS ====================== -->
+  <nav class="tabs" role="tablist">
+    <button data-tab="course" class="active" role="tab"><span class="ic">📋</span>과정·일정</button>
+    <button data-tab="access" role="tab"><span class="ic">🚌</span>교통·주차</button>
+    <button data-tab="info" role="tab"><span class="ic">📌</span>안내·후기</button>
+  </nav>
+
+  <!-- ====================== MAIN ====================== -->
+  <main>
+
+    <!-- ============== TAB 1: 과정·일정 ============== -->
+    <section class="tab-panel active" id="tab-course">
+
+      <div class="section-title"><span class="bar"></span>교육목표</div>
+      <div class="card">
+        <ul class="info-list">
+          <li>최적의 연구성과 <span class="key">측정지표를 활용</span>하여 연구개발 성과를 평가할 수 있습니다.</li>
+          <li>연구목표 달성 후에도 <span class="key">지속적으로 관리</span>하여 개선과 활용을 극대화할 수 있습니다.</li>
+        </ul>
+      </div>
+
+      <div class="section-title"><span class="bar"></span>과정개요</div>
+      <div class="card">
+        <div class="overview-list">
+          <div class="k">대&nbsp;&nbsp;&nbsp;상</div><div class="v">연구관리전문기관 성과관리 <strong>실무경력 3년 이내 연구관리자</strong></div>
+          <div class="k">기&nbsp;&nbsp;&nbsp;간</div><div class="v"><strong>2026. 8. 12.(수) ~ 8. 13.(목)</strong> · 2일 (비숙박, 13H)</div>
+          <div class="k">장&nbsp;&nbsp;&nbsp;소</div><div class="v">(오송) 청주오스코 중회의장 203·204호</div>
+          <div class="k">비&nbsp;&nbsp;&nbsp;용</div><div class="v">110,000원 (2식 비용 포함)</div>
+          <div class="k">주&nbsp;&nbsp;&nbsp;관</div><div class="v last">국가과학기술인력개발원</div>
+        </div>
+      </div>
+
+      <div class="section-title"><span class="bar"></span>교육특징</div>
+      <div class="card">
+        <ul class="info-list">
+          <li>연구개발사업 사업관리 담당자 간 <span class="key">네트워킹 기회</span>를 제공합니다.</li>
+          <li>조사·분석·활용/확산 등 <span class="key">전주기적 관점</span>에서 성과관리 체계 이해를 지원합니다.</li>
+          <li>주관연구기관 <span class="key">성과 종류 및 창출방안</span> 이해를 지원합니다.</li>
+        </ul>
+      </div>
+
+      <div class="section-title"><span class="bar"></span>교육일정</div>
+
+      <div class="day-tabs" role="tablist">
+        <button data-day="0" class="active">1일차 · 8/12(수)</button>
+        <button data-day="1">2일차 · 8/13(목)</button>
+      </div>
+
+      <div class="schedule day-panel" data-day="0">
+        <div class="schedule-row head"><div>시간</div><div>내용</div><div>관련역량</div></div>
+        <div class="schedule-row">
+          <div class="time">10:30~11:00<span class="dur">30분</span></div>
+          <div class="content"><div class="title">참가 등록</div></div>
+          <div class="tag"></div>
+        </div>
+        <div class="schedule-row">
+          <div class="time">11:00~12:00<span class="dur">60분</span></div>
+          <div class="content"><div class="title">오리엔테이션 및 네트워킹</div></div>
+          <div class="tag"></div>
+        </div>
+        <div class="schedule-row meal">
+          <div class="time">12:00~13:00<span class="dur">60분</span></div>
+          <div class="content">🍱 중식</div>
+          <div class="tag"></div>
+        </div>
+        <div class="schedule-row">
+          <div class="time">13:00~15:00<span class="dur">120분</span></div>
+          <div class="content"><div class="title">[총괄] 성과관리의 이해</div></div>
+          <div class="tag"><span class="pill">성과관리</span></div>
+        </div>
+        <div class="schedule-row">
+          <div class="time">15:00~18:00<span class="dur">180분</span></div>
+          <div class="content"><div class="title">[조사] 성과의 종류 및 지표</div></div>
+          <div class="tag"><span class="pill">성과관리</span></div>
+        </div>
+      </div>
+
+      <div class="schedule day-panel" data-day="1" style="display:none;">
+        <div class="schedule-row head"><div>시간</div><div>내용</div><div>관련역량</div></div>
+        <div class="schedule-row">
+          <div class="time">09:00~09:30<span class="dur">30분</span></div>
+          <div class="content"><div class="title">등록 및 출석확인</div></div>
+          <div class="tag"></div>
+        </div>
+        <div class="schedule-row">
+          <div class="time">09:30~12:00<span class="dur">150분</span></div>
+          <div class="content"><div class="title">[분석] 성과정보 검토</div></div>
+          <div class="tag"><span class="pill">성과관리</span></div>
+        </div>
+        <div class="schedule-row meal">
+          <div class="time">11:30~13:00<span class="dur">90분</span></div>
+          <div class="content">🍱 중식</div>
+          <div class="tag"></div>
+        </div>
+        <div class="schedule-row">
+          <div class="time">13:00~15:00<span class="dur">120분</span></div>
+          <div class="content"><div class="title">[활용/확산] 기술 활용 방법론</div></div>
+          <div class="tag"><span class="pill">사업관리</span></div>
+        </div>
+        <div class="schedule-row">
+          <div class="time">15:00~17:30<span class="dur">150분</span></div>
+          <div class="content"><div class="title">[활용] 성과 확산</div></div>
+          <div class="tag"><span class="pill">성과관리</span></div>
+        </div>
+        <div class="schedule-row">
+          <div class="time">17:30~17:50<span class="dur">20분</span></div>
+          <div class="content"><div class="title">과정리뷰 및 만족도 조사</div></div>
+          <div class="tag"></div>
+        </div>
+      </div>
+
+      <div class="note-asterisk">※ 상기 일정은 내부 사정에 따라 변경될 수 있습니다.</div>
+
+    </section>
+
+    <!-- ============== TAB 2: 교통·주차 ============== -->
+    <section class="tab-panel" id="tab-access">
+
+      <div class="section-title"><span class="bar"></span>오시는 길</div>
+
+      <div class="addr-card">
+        <div class="label">ADDRESS</div>
+        <div class="name">청주오스코 (OSCO) · 중회의장 203·204호</div>
+        <div class="row"><div class="k">주소</div><div class="v">충청북도 청주시 흥덕구 오송읍 오송생명로 250</div></div>
+        <div class="row"><div class="k">전화</div><div class="v">043-230-4000</div></div>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <div class="route-block">
+          <h4><span class="ic">🚄</span>대중교통 이용</h4>
+          <div class="transit-grid">
+            <div class="transit-card">
+              <h5>KTX · 오송역 도착</h5>
+              <div class="item"><span class="place">오송역 8번 출구</span><span class="time">도보 15분</span></div>
+              <div class="note">※ 오송역 8번 출구에서 청주오스코까지 도보 약 15분</div>
+            </div>
+            <div class="transit-card">
+              <h5>버스 · 청주고속버스터미널 출발</h5>
+              <div class="item"><span class="place">511번 → 만수리 하차</span><span class="time">20분</span></div>
+              <div class="item"><span class="place">502번 → 만수공원 하차</span><span class="time">22분</span></div>
+              <div class="note">※ 만수리 하차 후 도보 6분 / 만수공원 하차 후 도보 9분</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title"><span class="bar"></span>주차 및 현장 이용</div>
+
+      <div class="card">
+        <ul class="info-list">
+          <li>네비게이션 검색 키워드 : <span class="key">'청주 오스코'</span> 검색</li>
+          <li>청주 오스코 <strong>주차 지원이 제공되지 않습니다.</strong> → 1일 최대 주차비 <strong>8,000원</strong></li>
+        </ul>
+        <div class="callout" style="margin-top:12px;">
+          ※ 제1주차장 · 제2주차장 · 제3주차장 · 지하주차장으로 분리 운영됩니다.<br>
+          ※ 자세한 사항은 <strong>043-230-4009</strong>로 문의 바랍니다.
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============== TAB 3: 안내·후기 ============== -->
+    <section class="tab-panel" id="tab-info">
+
+      <div class="section-title"><span class="bar"></span>참가 준비</div>
+      <div class="card shaded">
+        <ul class="info-list">
+          <li><span class="key">교육 복장</span> : 교육 분위기를 저해하지 않는 자유로운 복장 (비즈니스 캐쥬얼 권장)</li>
+          <li><span class="key">준비물</span> : 개인 텀블러, 개인 복용약 등</li>
+        </ul>
+      </div>
+
+      <div class="section-title"><span class="bar"></span>교육변경 및 취소</div>
+      <div class="card shaded">
+        <ul class="info-list">
+          <li>교육 변경 및 취소는 <span class="key">각 소속기관 교육담당자</span>를 통해 가능합니다.</li>
+          <li>교육 개시 전일(워킹데이 기준) 18시 이전 취소 : <strong>전액 환불</strong></li>
+          <li>교육 개시 전일 18시 이후 ~ 당일 시작 전 취소 : <strong>1일 교육비 징수</strong></li>
+          <li>교육 시작 후 취소 시 : 취소일까지 일할 계산하여 교육비 징수</li>
+        </ul>
+        <div class="callout">※ 교육비 환불은 KIRD 규정에 따르며 취소일에 따라 환불금이 다릅니다.</div>
+      </div>
+
+      <div class="section-title"><span class="bar"></span>교육수료</div>
+      <div class="card shaded">
+        <ul class="info-list">
+          <li>교육시간의 <strong>참석률 80% 이상</strong> 및 설문조사 완료 시 수료, 그 외 자동 미수료 처리됩니다.</li>
+          <li>참석률 80% 이상이더라도 <strong>무단 결강·조퇴 시 미수료(퇴소)</strong> 처리됩니다.</li>
+          <li>교육기간 중 불참 사유 발생 시 반드시 운영자와 사전 협의 바랍니다. (허가원 작성 必)</li>
+          <li>교육만족도 설문조사는 <span class="key">교육종료 후 SMS</span>를 통해 발송됩니다.</li>
+          <li>수료증은 교육종료 1주일 후 <span class="key">알파캠퍼스(alpha-campus.kr)</span> 로그인 → 마이페이지 → '수료증 발급'에서 출력 가능합니다.</li>
+        </ul>
+        <div class="callout warn">⚠️ 미수료 시 소속기관에 통보됩니다.</div>
+      </div>
+
+      <div class="section-title"><span class="bar"></span>문의처</div>
+      <div class="contacts">
+        <div class="contact">
+          <div>
+            <div class="role">교육대상 및 내용</div>
+            <div class="name">류승연</div>
+          </div>
+          <a class="tel" href="tel:043-251-7107">📞 043-251-7107</a>
+          <a class="email" href="mailto:syryoo@kird.re.kr">✉️ syryoo@kird.re.kr</a>
+        </div>
+        <div class="contact">
+          <div>
+            <div class="role">교육운영 및 입과</div>
+            <div class="name">이창희</div>
+          </div>
+          <a class="tel" href="tel:043-251-7110">📞 043-251-7110</a>
+          <a class="email" href="mailto:leech@kird.re.kr">✉️ leech@kird.re.kr</a>
+        </div>
+        <div class="contact">
+          <div>
+            <div class="role">교육변경 및 취소</div>
+            <div class="name">이창희</div>
+          </div>
+          <a class="tel" href="tel:043-251-7110">📞 043-251-7110</a>
+          <a class="email" href="mailto:leech@kird.re.kr">✉️ leech@kird.re.kr</a>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section-title"><span class="bar"></span>교육후기</div>
+      <p class="section-subtitle">교과목 기반으로 구성한 예시(익명) 후기입니다.</p>
+
+      <div class="review-card" style="border-left-color:#2c5f8a;">
+        <div class="review-text">성과관리의 이해부터 지표 설계까지, 실무에서 막연했던 성과관리 체계를 처음으로 명확히 정리할 수 있었습니다.</div>
+        <div class="review-author">
+          <div class="avatar" style="background:#2c5f8a;">A</div>
+          <div class="review-meta">
+            <div class="name">A 연구관리자</div>
+            <div class="org">연구관리전문기관</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card" style="border-left-color:#c9a84c;">
+        <div class="review-text">타 기관 담당자들과 네트워킹하며 성과관리 실무 고민을 함께 나눌 수 있어 값진 시간이었습니다.</div>
+        <div class="review-author">
+          <div class="avatar" style="background:#c9a84c;">B</div>
+          <div class="review-meta">
+            <div class="name">B 연구관리자</div>
+            <div class="org">연구관리전문기관</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card" style="border-left-color:#4a1a6b;">
+        <div class="review-text">성과정보 검토와 지표 세션이 실제 평가 업무에 바로 적용 가능해 큰 도움이 되었습니다.</div>
+        <div class="review-author">
+          <div class="avatar" style="background:#4a1a6b;">C</div>
+          <div class="review-meta">
+            <div class="name">C 연구관리자</div>
+            <div class="org">연구관리전문기관</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card" style="border-left-color:#0c4a5e;">
+        <div class="review-text">기술 활용·확산 방법론을 통해 창출된 성과를 어떻게 활용·관리할지 구체적으로 그려볼 수 있었습니다.</div>
+        <div class="review-author">
+          <div class="avatar" style="background:#0c4a5e;">D</div>
+          <div class="review-meta">
+            <div class="name">D 연구관리자</div>
+            <div class="org">연구관리전문기관</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    최종 업데이트: 2026 · <strong>KIRD 국가과학기술인력개발원</strong><br>
+    Korea Institute of Human Resources Development in Science and Technology
+  </footer>
+
+</div>
+
+<script>
+  const tabBtns = document.querySelectorAll('nav.tabs button');
+  const panels = document.querySelectorAll('.tab-panel');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
+      tabBtns.forEach(b => b.classList.toggle('active', b === btn));
+      panels.forEach(p => p.classList.toggle('active', p.id === 'tab-' + target));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  const dayBtns = document.querySelectorAll('.day-tabs button');
+  const dayPanels = document.querySelectorAll('.day-panel');
+
+  dayBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.day;
+      dayBtns.forEach(b => b.classList.toggle('active', b === btn));
+      dayPanels.forEach(p => {
+        p.style.display = (p.dataset.day === target) ? '' : 'none';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
