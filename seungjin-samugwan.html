@@ -779,66 +779,7 @@ function AccessTab(_ref7) {
       flexShrink: 0,
       alignSelf: "stretch"
     }
-  }))), /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement("h4", {
-    style: {
-      fontSize: "13px",
-      fontWeight: 700,
-      color: "#2c5f8a",
-      margin: "0 0 12px"
-    }
-  }, "\uD83D\uDE97 \uC2B9\uC6A9\uCC28 \uC774\uC6A9"), d.car.map(function (c, i) {
-    return /*#__PURE__*/React.createElement("div", {
-      key: i,
-      style: {
-        marginBottom: i < d.car.length - 1 ? "12px" : 0
-      }
-    }, /*#__PURE__*/React.createElement("div", {
-      style: {
-        fontSize: "12px",
-        fontWeight: 600,
-        color: "#333",
-        marginBottom: "4px"
-      }
-    }, c.route), /*#__PURE__*/React.createElement("div", {
-      style: {
-        fontSize: "12px",
-        color: "#777",
-        lineHeight: 1.5
-      }
-    }, c.detail));
-  })), /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement("h4", {
-    style: {
-      fontSize: "13px",
-      fontWeight: 700,
-      color: "#2c5f8a",
-      margin: "0 0 12px"
-    }
-  }, "\uD83D\uDE8C \uAE30\uCC28 \uC774\uC6A9"), d.bus.map(function (b, i) {
-    return /*#__PURE__*/React.createElement("div", {
-      key: i,
-      style: {
-        display: "flex",
-        justifyContent: "space-between",
-        fontSize: "12px",
-        color: "#444",
-        marginBottom: "6px"
-      }
-    }, /*#__PURE__*/React.createElement("span", {
-      style: {
-        fontWeight: 600
-      }
-    }, b.from));
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: "10px",
-      color: "#777",
-      marginTop: "8px",
-      borderTop: "1px solid #f0f0f0",
-      paddingTop: "6px",
-      lineHeight: 1.8,
-      whiteSpace: "pre-line"
-    }
-  }, d.busNote)), /*#__PURE__*/React.createElement(Divider, null), /*#__PURE__*/React.createElement(SubTitle, null, "\uC154\uD2C0\uBC84\uC2A4 \uC774\uC6A9 \uC548\uB0B4 (\uC785\uC18C\uC2DC)"), /*#__PURE__*/React.createElement(Card, null, data.shuttle.map(function (s, i) {
+  }))), /*#__PURE__*/React.createElement(SubTitle, null, "\uC154\uD2C0\uBC84\uC2A4 \uC774\uC6A9 \uC548\uB0B4 (\uC785\uC18C\uC2DC)"), /*#__PURE__*/React.createElement(Card, null, data.shuttle.map(function (s, i) {
     var isArrival = s.point.indexOf("\uB3C4\uCC29") > -1;
     return /*#__PURE__*/React.createElement("div", {
       key: i,
