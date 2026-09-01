@@ -38,7 +38,7 @@ var DEFAULT_DATA = {
   cohort: "3기",
   year: "2026",
   hashtags: ["#선임", "#승급자"],
-  lastUpdated: "2026. 7. 9.",
+  lastUpdated: "2026. 8. 21.",
   alerts: [{
     icon: "💻",
     text: "개인 노트북 필수 지참",
@@ -46,13 +46,13 @@ var DEFAULT_DATA = {
     color: "#c0392b"
   }, {
     icon: "🪪",
-    text: "명함 50장 이상 준비",
+    text: "명함 20장 이상 준비",
     sub: "1일차 오리엔테이션 시 명함 교환이 있습니다",
     color: "#2c5f8a"
   }, {
     icon: "🚌",
     text: "셔틀버스 정시 출발",
-    sub: "대전역 08:55 / 카이스트 09:30 — 지연 없이 출발합니다",
+    sub: "대전역 09:25 / 카이스트 10:00 — 지연 없이 출발합니다",
     color: "#2c5f8a"
   }, {
     icon: "🎓",
@@ -69,7 +69,7 @@ var DEFAULT_DATA = {
   overview: {
     target: "출연(연) 및 공공연구기관 재직 선임급 승진(예정)자",
     period: "2026. 9. 30.(수) ~ 10. 2.(금), 15H",
-    location: "(충남 예산) 덕산 스플라스 리솜 스테이타워 L1 SPACE C",
+    location: "(충남 예산) 덕산 스플라스 리솜 스테이타워 L1 SPACE B",
     cost: "225,000원 (7식 및 숙박 제공)",
     organizer: "국가과학기술인력개발원, 국가과학기술연구회"
   },
@@ -78,35 +78,24 @@ var DEFAULT_DATA = {
     date: "9.30(수)",
     label: "Day 1",
     sessions: [{
-      time: "11:00~11:30",
+      time: "11:30~12:00",
       min: "30분",
       title: "오리엔테이션 및 네트워킹",
       desc: "교육생 간 소속, 업무내용 공유 / 조별 구성원 간 명함 교환",
       tag: ""
     }, {
-      time: "11:30~12:30",
+      time: "12:00~13:00",
       min: "60분",
       title: "중식",
       tag: ""
     }, {
-      time: "12:30~15:30",
-      min: "180분",
+      time: "13:00~17:00",
+      min: "240분",
       title: "선임승급자 역할인식과 리포지셔닝",
-      desc: "선임급 역할 및 요구역량 인식 / 자기주도적 목표 달성 역량 진단 및 실행 전략 / 팀 성과를 높이는 실무 조율자(가교) 역할 탐색",
+      desc: "선임급 역할 및 요구역량 인식 / 네트워킹",
       tag: "변화관리"
     }, {
-      time: "15:30~15:40",
-      min: "10분",
-      title: "쉬는 시간",
-      tag: ""
-    }, {
-      time: "15:40~18:10",
-      min: "150분",
-      title: "성과를 이끄는 일잘러의 목표관리 기술",
-      desc: "효과적 목표 설정과 체계적 관리 프레임 / 목표 달성을 위한 전략 및 액션플랜 수립",
-      tag: "성과창출"
-    }, {
-      time: "18:10~19:10",
+      time: "17:00~18:00",
       min: "60분",
       title: "석식",
       tag: ""
@@ -116,18 +105,18 @@ var DEFAULT_DATA = {
     date: "10.1(목)",
     label: "Day 2",
     sessions: [{
-      time: "07:30~09:30",
-      min: "120분",
+      time: "07:30~09:00",
+      min: "90분",
       title: "조식",
       tag: ""
     }, {
-      time: "09:30~10:00",
+      time: "09:00~09:30",
       min: "30분",
       title: "2일차 등록",
       tag: ""
     }, {
-      time: "10:00~12:00",
-      min: "120분",
+      time: "09:30~12:00",
+      min: "150분",
       title: "변화하는 R&D 환경과 출연(연)의 역할",
       desc: "최신 R&D 정책 및 환경 트렌드 분석 / 기관 및 업무 차원의 대응 방향 도출",
       tag: "문제해결"
@@ -165,24 +154,24 @@ var DEFAULT_DATA = {
     }, {
       time: "09:00~12:00",
       min: "180분",
-      title: "의사결정을 지원하는 전략적 보고 설계",
-      desc: "상급자 판단을 돕는 보고 구조 설계 / AI 도구 기반 핵심 쟁점 보고 실습",
+      title: "AI 시대, 일하는 방식의 진화",
+      desc: "AI 도입에 따른 업무 환경 변화 / AI 실무 활용 사례 및 방안 / AI 활용 업무 자동화 실습",
       tag: "문서작성/DX"
     }, {
       time: "12:00~12:20",
       min: "20분",
-      title: "설문 및 교육 종료",
+      title: "교육 종료 및 설문 조사",
       tag: ""
     }, {
-      time: "12:20~13:00",
-      min: "40분",
+      time: "12:20~",
+      min: "",
       title: "중식 및 퇴소",
       tag: ""
     }]
   }],
   preparation: {
     dress: "교육 분위기를 저해하지 않는 자유로운 복장 (비즈니스 캐쥬얼 권장)",
-    items: "명함 50장 이상, 개인 노트북(필수), 개인 세면도구, 여벌의류, 개인 복용약 등"
+    items: "명함 20장 이상, 개인 노트북(필수), 개인 세면도구, 여벌의류, 개인 복용약 등"
   },
   cancellation: {
     method: "교육 변경·취소는 각 소속기관 교육담당자를 통해 가능합니다.",
@@ -204,18 +193,18 @@ var DEFAULT_DATA = {
   },
   shuttle: [{
     point: "대전역 출발",
-    detail: "대전역 1번 출입구 동광장 앞 버스정차장 (차량 대기 08:45~08:55)",
-    depart: "08:55 정시출발",
+    detail: "대전역 1번 출입구 동광장 앞 버스정차장 (차량 대기 09:15~09:25)",
+    depart: "09:25 정시출발",
     hasImage: true
   }, {
     point: "카이스트 경유",
     hasImage: true,
-    detail: "카이스트 정문 부근 버스 정차소 (차량 대기 09:20~09:30) / 오리연못 도보 1분(117m)",
-    depart: "09:30 정시출발"
+    detail: "카이스트 정문 부근 버스 정차소 (차량 대기 09:50~10:00) / 오리연못 도보 1분(117m)",
+    depart: "10:00 정시출발"
   }, {
     point: "충남 예산 스플라스 리솜 도착",
     detail: "",
-    depart: "10:40 도착"
+    depart: "11:10 도착"
   }],
   shuttleNotes: ["KIRD 行 확인 후 탑승 (차량정보 및 기사 연락처 추후 공지)", "퇴소 시 역순 운행, 탑승시간 별도 안내", "교통상황에 따라 달라질 수 있으니 출발시간 5분 전까지 대기"],
   facilities: {
@@ -224,7 +213,7 @@ var DEFAULT_DATA = {
       note: "시간은 변동될 수 있음"
     },
     room: ["2인 1실 (침실 2개, 욕실 1개, 공용 거실)"],
-    classroom: ["스테이타워 L1 SPACE C"]
+    classroom: ["스테이타워 L1 SPACE B"]
   },
   contacts: [{
     role: "교육대상 및 내용",
@@ -233,14 +222,14 @@ var DEFAULT_DATA = {
     email: "dhkim@kird.re.kr"
   }, {
     role: "교육운영 및 입과",
-    name: "김지우",
-    phone: "043-251-7193",
-    email: "jwkim@kird.re.kr"
+    name: "유혜진",
+    phone: "043-251-7194",
+    email: "hjyu@kird.re.kr"
   }, {
     role: "교육변경 및 취소",
-    name: "김지우",
-    phone: "043-251-7193",
-    email: "jwkim@kird.re.kr"
+    name: "김유민",
+    phone: "043-251-7050",
+    email: "ymkim@kird.re.kr"
   }],
   reviews: [{
     name: "A 선임연구원",
@@ -798,7 +787,7 @@ function AccessTab(_ref7) {
       padding: "1px 6px",
       borderRadius: "4px"
     }
-  }, "SPACE C")), /*#__PURE__*/React.createElement("div", {
+  }, "SPACE B")), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       gap: "12px",
