@@ -313,6 +313,7 @@ function(a,b,c){if(!Vd(b))throw Error(m(200));return Wd(null,a,b,!1,c)};Q.unmoun
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background: #f7f6f3; }
 button { -webkit-tap-highlight-color: transparent; }
+.g-pagebreak { display: none; }
 
 /* ── 인쇄: A4 세로, 단일 컬럼(현재 선택된 탭만 출력) ── */
 @media print {
@@ -321,7 +322,9 @@ button { -webkit-tap-highlight-color: transparent; }
   body { background: #fff !important; }
   .g-main { max-width: none !important; padding: 16px 0 0 !important; }
   .g-head { padding: 24px 22px 20px !important; }
-  .g-tabs { break-inside: avoid; }
+  .g-tabs { display: none !important; }
+  .no-print { display: none !important; }
+  .g-pagebreak { display: block !important; break-before: page; page-break-before: always; }
   .g-foot { padding: 10px !important; }
   * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 }
@@ -428,7 +431,7 @@ var DEFAULT_DATA = {
   }, {
     point: "④ ‘수강신청’ 클릭",
     detail: "",
-    url: ""
+    url: "https://alpha-campus.kr/explore/ef44e2ce-d980-4da0-ae7c-911766d05a09?sequenceId=dbd5ca37-03e1-4bf2-b9de-c514ed2076ab&tab=ALL"
   }],
   applyNotes: ["교육신청은 알파캠퍼스(alpha-campus.kr) 가입 후 가능합니다", "입과 취소 사유 발생 시 사전에 교육 운영자에게 연락 바랍니다", "신청 관련 문의는 하단 담당자 연락처 참조"],
   contacts: [{
@@ -568,33 +571,6 @@ function CourseTab(props) {
 
   return h(React.Fragment, null,
     h(Banner, { icon: "📋", title: "과정·일정", sub: "교육목표, 과정개요, 일정을 안내합니다" }),
-
-    data.alerts && h("div", {
-      style: {
-        background: "#fff8f0", borderRadius: "12px", padding: "14px 16px",
-        marginBottom: "20px", border: "1px solid #f0e0c8"
-      }
-    },
-      h("div", { style: { fontSize: "12px", fontWeight: 800, color: "#c0392b", marginBottom: "10px" } }, "📢 꼭 확인하세요"),
-      h("div", { style: { display: "flex", flexDirection: "column", gap: "6px" } },
-        data.alerts.map(function (a, i) {
-          return h("div", {
-            key: i,
-            style: {
-              display: "flex", gap: "10px", alignItems: "flex-start",
-              background: "#fff", borderRadius: "8px", padding: "8px 12px",
-              borderLeft: "3px solid " + a.color
-            }
-          },
-            h("span", { style: { fontSize: "14px", lineHeight: 1.5 } }, a.icon),
-            h("div", null,
-              h("div", { style: { fontSize: "12.5px", fontWeight: 800, color: a.color } }, a.text),
-              a.sub && h("div", { style: { fontSize: "11px", color: "#777", marginTop: "2px", lineHeight: 1.4 } }, a.sub)
-            )
-          );
-        })
-      )
-    ),
 
     h(KV, { kv: data.kv }),
 
@@ -801,11 +777,25 @@ function Guide() {
   var s2 = useState("course"), tab = s2[0], setTab = s2[1];
   var s3 = useState(0), activeDay = s3[0], setActiveDay = s3[1];
   var s4 = useState(true), loading = s4[0], setLoading = s4[1];
+  var s5 = useState(false), printMode = s5[0], setPrintMode = s5[1];
 
   useEffect(function () {
     setData(DEFAULT_DATA);
     setLoading(false);
   }, []);
+
+  /* 인쇄(PDF 저장) 종료 후 화면을 원래 탭 보기로 복원 */
+  useEffect(function () {
+    function after() { setPrintMode(false); }
+    window.addEventListener("afterprint", after);
+    return function () { window.removeEventListener("afterprint", after); };
+  }, []);
+
+  /* PDF 저장: 전체 탭을 한 번에 펼친 뒤 인쇄 대화상자 호출 */
+  function savePdf() {
+    setPrintMode(true);
+    setTimeout(function () { window.print(); }, 300);
+  }
 
   if (loading || !data) return h("div", {
     style: {
@@ -835,8 +825,22 @@ function Guide() {
       }),
       h("div", { style: { position: "relative", maxWidth: "760px", margin: "0 auto" } },
         h("div", {
-          style: { fontSize: "11px", color: "rgba(255,255,255,0.75)", fontWeight: 500, letterSpacing: "2px", marginBottom: "8px" }
-        }, "KIRD"),
+          style: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: "10px", marginBottom: "8px" }
+        },
+          h("div", {
+            style: { fontSize: "11px", color: "rgba(255,255,255,0.75)", fontWeight: 500, letterSpacing: "2px" }
+          }, "KIRD"),
+          h("button", {
+            className: "no-print",
+            onClick: savePdf,
+            title: "인쇄 대화상자에서 '대상'을 'PDF로 저장'으로 선택",
+            style: {
+              background: "rgba(255,255,255,0.18)", border: "1px solid rgba(255,255,255,0.45)",
+              color: "#fff", fontFamily: "inherit", fontSize: "12px", fontWeight: 700,
+              padding: "7px 13px", borderRadius: "8px", cursor: "pointer", whiteSpace: "nowrap"
+            }
+          }, "📄 PDF로 저장")
+        ),
         h("h1", {
           style: { color: "#fff", fontSize: "24px", fontWeight: 900, margin: "0 0 12px", lineHeight: 1.3 }
         }, data.courseName, data.cohort ? " (" + data.cohort + ")" : ""),
@@ -885,9 +889,15 @@ function Guide() {
       className: "g-main",
       style: { padding: "20px 20px 32px", maxWidth: "760px", margin: "0 auto" }
     },
-      tab === "course"
-        ? h(CourseTab, { data: data, activeDay: activeDay, setActiveDay: setActiveDay })
-        : h(InfoTab, { data: data })
+      printMode
+        ? h(React.Fragment, null,
+            h(CourseTab, { data: data, activeDay: activeDay, setActiveDay: setActiveDay }),
+            h("div", { className: "g-pagebreak" }),
+            h(InfoTab, { data: data })
+          )
+        : tab === "course"
+          ? h(CourseTab, { data: data, activeDay: activeDay, setActiveDay: setActiveDay })
+          : h(InfoTab, { data: data })
     ),
 
     h("footer", {
