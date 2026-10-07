@@ -572,6 +572,33 @@ function CourseTab(props) {
   return h(React.Fragment, null,
     h(Banner, { icon: "📋", title: "과정·일정", sub: "교육목표, 과정개요, 일정을 안내합니다" }),
 
+    data.alerts && h("div", {
+      style: {
+        background: "#fff8f0", borderRadius: "12px", padding: "14px 16px",
+        marginBottom: "20px", border: "1px solid #f0e0c8"
+      }
+    },
+      h("div", { style: { fontSize: "12px", fontWeight: 800, color: "#c0392b", marginBottom: "10px" } }, "📢 꼭 확인하세요"),
+      h("div", { style: { display: "flex", flexDirection: "column", gap: "6px" } },
+        data.alerts.map(function (a, i) {
+          return h("div", {
+            key: i,
+            style: {
+              display: "flex", gap: "10px", alignItems: "flex-start",
+              background: "#fff", borderRadius: "8px", padding: "8px 12px",
+              borderLeft: "3px solid " + a.color
+            }
+          },
+            h("span", { style: { fontSize: "14px", lineHeight: 1.5 } }, a.icon),
+            h("div", null,
+              h("div", { style: { fontSize: "12.5px", fontWeight: 800, color: a.color } }, a.text),
+              a.sub && h("div", { style: { fontSize: "11px", color: "#777", marginTop: "2px", lineHeight: 1.4 } }, a.sub)
+            )
+          );
+        })
+      )
+    ),
+
     h(KV, { kv: data.kv }),
 
     h(SubTitle, null, "교육목표"),
