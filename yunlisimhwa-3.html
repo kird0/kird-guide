@@ -391,6 +391,7 @@ var DEFAULT_DATA = {
   }],
   preparation: {
     dress: "비즈니스 캐쥬얼(교육 분위기를 저해하지 않는 자유로운 복장)",
+    highlight: "노트북",
     items: "명함, 개인 세면도구, 여벌의류, 개인 복용약, 개인 텀블러 등"
   },
   cancellation: {
@@ -755,7 +756,13 @@ function InfoTab(props) {
         h("div", { style: { marginBottom: "8px" } },
           data.preparation.dress && h(React.Fragment, null, h("strong", null, "복장"), " — ", data.preparation.dress)
         ),
-        h("div", null, h("strong", null, "준비물"), " — ", data.preparation.items)
+        h("div", null, h("strong", null, "준비물"), " — ",
+          data.preparation.highlight && h(React.Fragment, null,
+            h("strong", { style: { color: "#c85a52" } }, data.preparation.highlight),
+            ", "
+          ),
+          data.preparation.items
+        )
       )
     ),
 
