@@ -326,7 +326,7 @@ var DATA = {
   hashtags: ["#연구보안", "#보안평가", "#노하우공유", "#보안관리벤치마킹"],
   lastUpdated: "2026. 11. 6.",
   alerts: [
-    { icon:"👥", text:"기관별 최대 2명 참여", sub:"연구보안평가 담당자 1명(필참), 정보보안 담당자 1명" },
+    { icon:"👥", text:"기관별 최대 2명 참여", sub:"연구보안 담당자 1명(필참), 그 외 관련 담당자 1명" },
     { icon:"🎓", text:"80% 참석 + 설문조사 완료 시 수료", sub:"무단 결강 시 미수료(퇴소) 처리" },
     { icon:"🪪", text:"명함 50장 지참", sub:"개인 세면도구, 여벌의류, 개인 복용약 등도 함께 준비" }
   ],
@@ -335,7 +335,7 @@ var DATA = {
     "연구보안평가 노하우 공유를 통해 보안관리 업무 역량을 강화할 수 있다."
   ],
   overview: [
-    ["대상", "과학기술분야 출연(연) 및 유관기관 보안 담당자(기관별 최대 2명)\n※ 연구보안평가 담당자 1명(필참), 정보보안 담당자 1명"],
+    ["대상", "과학기술분야 출연(연) 및 유관기관 보안 담당자(기관별 최대 2명)\n※ 연구보안 담당자 1명(필참), 그 외 관련 담당자 1명\n※ 기관별 2명을 초과하여 참석을 희망하는 경우 사전에 교육 운영자에게 문의 바랍니다"],
     ["기간", "2026. 12. 3.(목) ~ 12. 4.(금) (1박 2일)"],
     ["장소", "(천안) 신라스테이"],
     ["비용", "무료 (1박 2일, 숙식 제공)"],
@@ -451,7 +451,7 @@ function Guide(){
 function CourseTab(p){
   var d = DATA.schedule[p.day];
   return h(React.Fragment,null,
-    h(Banner,{icon:"📋",title:"과정·일정",sub:"교육목표, 과정개요, 교육일정을 안내합니다"}),
+    h(Banner,{icon:"📋",title:"과정·일정",sub:"교육목표, 과정개요, 교육일정, 문의처를 안내합니다"}),
     h(Sub,null,"교육목표"),
     h(Card,null,DATA.objectives.map(function(o,i){ return h("div",{key:i,style:{display:"flex",gap:"10px",marginBottom:i<DATA.objectives.length-1?"10px":0,fontSize:"14px",color:"#333",lineHeight:1.6,wordBreak:"keep-all"}},
       h("span",{style:{flex:"none",width:"20px",height:"20px",borderRadius:"3px",background:C.navy,color:C.y,fontSize:"11px",fontWeight:900,display:"flex",alignItems:"center",justifyContent:"center",marginTop:"2px"}},i+1),h("span",null,o)); })),
@@ -476,7 +476,15 @@ function CourseTab(p){
           s.desc && h("div",{style:{fontSize:"11.5px",color:"#7a8394",marginTop:"2px"}},s.desc),
           s.speaker && h("div",{style:{display:"inline-block",marginTop:"7px",fontSize:"11.5px",fontWeight:700,color:C.navy,background:C.ySoft,borderRadius:"3px",padding:"2px 8px"}},"🎙️ "+s.speaker)));
     })),
-    h("div",{style:{fontSize:"11px",color:"#8a93a3",textAlign:"center"}},"※ 상기 내용은 사정에 따라 변경될 수 있습니다."));
+    h("div",{style:{fontSize:"11px",color:"#8a93a3",textAlign:"center"}},"※ 상기 내용은 사정에 따라 변경될 수 있습니다."),
+    h(Divider),
+    h(Sub,null,"문의처"),
+    DATA.contacts.map(function(c,i){ return h(Card,{key:i,style:{borderLeft:"4px solid "+(i<2?C.navy:C.y)}},
+      h("div",{style:{fontSize:"11.5px",color:C.navy3,fontWeight:700,marginBottom:"5px"}},c.role),
+      h("div",{style:{fontSize:"15px",fontWeight:800,color:C.ink,marginBottom:"8px"}},c.name),
+      h("div",{style:{display:"flex",gap:"16px",fontSize:"13px",flexWrap:"wrap"}},
+        h("a",{href:"tel:"+c.phone,style:{color:C.navy2,textDecoration:"none"}},"📞 "+c.phone),
+        c.email && h("a",{href:"mailto:"+c.email,style:{color:C.navy2,textDecoration:"none"}},"✉️ "+c.email))); }));
 }
 
 function InfoTab(){
@@ -515,7 +523,7 @@ function InfoTab(){
 function AccessTab(){
   var d = DATA.directions, pr = DATA.preparation;
   return h(React.Fragment,null,
-    h(Banner,{icon:"📍",title:"준비물·오시는 길",sub:"준비물, 교육장 위치, 시설, 문의처"}),
+    h(Banner,{icon:"📍",title:"준비물·오시는 길",sub:"준비물, 교육장 위치, 시설 안내"}),
     h(Sub,null,"참가 준비"),
     h(Card,null,
       h("div",{style:{fontSize:"13px",color:"#333",lineHeight:1.7,marginBottom:"12px",wordBreak:"keep-all"}},h("strong",{style:{color:C.navy2}},"복장  "),pr.dress),
@@ -534,14 +542,7 @@ function AccessTab(){
       h("div",{style:{padding:"8px 10px",display:"flex",alignItems:"center",gap:"6px",flexWrap:"wrap"}},
         h("span",{style:{fontSize:"13px",fontWeight:800,color:C.navy}},x.title),
         x.tag && h("span",{style:{fontSize:"10.5px",fontWeight:800,color:C.navy,background:C.y,padding:"1px 6px",borderRadius:"3px"}},x.tag))); })),
-    h(Divider),
-    h(Sub,null,"문의처"),
-    DATA.contacts.map(function(c,i){ return h(Card,{key:i,style:{borderLeft:"4px solid "+(i<2?C.navy:C.y)}},
-      h("div",{style:{fontSize:"11.5px",color:C.navy3,fontWeight:700,marginBottom:"5px"}},c.role),
-      h("div",{style:{fontSize:"15px",fontWeight:800,color:C.ink,marginBottom:"8px"}},c.name),
-      h("div",{style:{display:"flex",gap:"16px",fontSize:"13px",flexWrap:"wrap"}},
-        h("a",{href:"tel:"+c.phone,style:{color:C.navy2,textDecoration:"none"}},"📞 "+c.phone),
-        c.email && h("a",{href:"mailto:"+c.email,style:{color:C.navy2,textDecoration:"none"}},"✉️ "+c.email))); }));
+    );
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render(h(Guide));
