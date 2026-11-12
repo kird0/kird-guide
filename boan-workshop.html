@@ -327,7 +327,8 @@ var DATA = {
   lastUpdated: "2026. 11. 6.",
   alerts: [
     { icon:"👥", text:"기관별 최대 2명 참여", sub:"연구보안 담당자 1명(필참), 그 외 관련 담당자 1명" },
-    { icon:"🎓", text:"80% 참석 + 설문조사 완료 시 수료", sub:"무단 결강 시 미수료(퇴소) 처리" },
+    { icon:"📞", text:"2명 초과 신청 시 사전 문의", sub:"기관별 2명을 초과하여 참석을 희망하는 경우, 사전에 교육 운영자에게 문의 바랍니다. (043-251-7060 / dhkim@kird.re.kr)" },
+    { icon:"🎓", text:"교육시간 100% 참석 + 설문조사 완료 시 수료", sub:"무단 결강 시 미수료(퇴소) 처리" },
     { icon:"🪪", text:"명함 50장 지참", sub:"개인 세면도구, 여벌의류, 개인 복용약 등도 함께 준비" }
   ],
   objectives: [
@@ -375,7 +376,7 @@ var DATA = {
     "교육 참여가 어려우신 경우, 반드시 사전에 교육 운영자에게 전달해 주시기 바랍니다."
   ],
   completion: [
-    "교육시간 80% 참여 및 설문조사 완료 시 교육 수료가 인정되며, 무단 결강 시 미수료(퇴소) 처리됩니다.",
+    "교육시간 100% 참여 및 설문조사 완료 시 교육 수료가 인정되며, 무단 결강 시 미수료(퇴소) 처리됩니다.",
     "교육만족도 설문조사는 교육 종료 후 SMS를 통해 발송됩니다.",
     "교육기간 중 불참 사유 발생 시 반드시 교육과정 운영자와 사전 협의 바랍니다. (허가원 작성 必)",
     "수료증은 교육 종료 후 KIRD 알파캠퍼스 로그인 → 마이페이지에서 확인 및 출력 가능합니다."
@@ -452,6 +453,14 @@ function CourseTab(p){
   var d = DATA.schedule[p.day];
   return h(React.Fragment,null,
     h(Banner,{icon:"📋",title:"과정·일정",sub:"교육목표, 과정개요, 교육일정, 문의처를 안내합니다"}),
+    DATA.alerts && h("div",{style:{background:C.ySoft,borderRadius:"6px",padding:"16px 18px",marginBottom:"20px",border:"1px solid "+C.y}},
+      h("div",{style:{fontSize:"13px",fontWeight:900,color:C.yDeep,marginBottom:"12px"}},"\uD83D\uDCE2 꼭 확인하세요"),
+      h("div",{style:{display:"flex",flexDirection:"column",gap:"8px"}},
+        DATA.alerts.map(function(a,i){ return h("div",{key:i,style:{display:"flex",gap:"10px",alignItems:"flex-start",background:"#fff",borderRadius:"4px",padding:"10px 12px",borderLeft:"3px solid "+C.navy}},
+          h("span",{style:{fontSize:"15px",flex:"none",lineHeight:1.3}},a.icon),
+          h("div",null,
+            h("div",{style:{fontSize:"12.5px",fontWeight:800,color:C.navy2,lineHeight:1.45,wordBreak:"keep-all"}},a.text),
+            a.sub && h("div",{style:{fontSize:"11.5px",color:C.sub,marginTop:"3px",lineHeight:1.5,wordBreak:"keep-all"}},a.sub))); }))),
     h(Sub,null,"교육목표"),
     h(Card,null,DATA.objectives.map(function(o,i){ return h("div",{key:i,style:{display:"flex",gap:"10px",marginBottom:i<DATA.objectives.length-1?"10px":0,fontSize:"14px",color:"#333",lineHeight:1.6,wordBreak:"keep-all"}},
       h("span",{style:{flex:"none",width:"20px",height:"20px",borderRadius:"3px",background:C.navy,color:C.y,fontSize:"11px",fontWeight:900,display:"flex",alignItems:"center",justifyContent:"center",marginTop:"2px"}},i+1),h("span",null,o)); })),
