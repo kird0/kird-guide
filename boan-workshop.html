@@ -389,8 +389,8 @@ var DATA = {
     ["원자력안전위원회", 2, "한국원자력통제기술원, 한국원자력안전기술원"]
   ],
   contacts: [
-    { role:"교육대상·내용", name:"제갈란", phone:"043-251-7047", email:"lanjegal@kird.re.kr" },
-    { role:"교육운영·변경", name:"김다현", phone:"043-251-7060", email:"dhkim@kird.re.kr" },
+    { role:"교육대상·내용", name:"", phone:"043-251-7047", email:"lanjegal@kird.re.kr" },
+    { role:"교육운영·변경", name:"", phone:"043-251-7060", email:"dhkim@kird.re.kr" },
     { role:"알파캠퍼스 (소속기관 등록·변경 문의)", name:"학습지원센터", phone:"1588-5834" }
   ],
   reviews: [
@@ -490,7 +490,7 @@ function CourseTab(p){
     h(Sub,null,"문의처"),
     DATA.contacts.map(function(c,i){ return h(Card,{key:i,style:{borderLeft:"4px solid "+(i<2?C.navy:C.y)}},
       h("div",{style:{fontSize:"11.5px",color:C.navy3,fontWeight:700,marginBottom:"5px"}},c.role),
-      h("div",{style:{fontSize:"15px",fontWeight:800,color:C.ink,marginBottom:"8px"}},c.name),
+      c.name && h("div",{style:{fontSize:"15px",fontWeight:800,color:C.ink,marginBottom:"8px"}},c.name),
       h("div",{style:{display:"flex",gap:"16px",fontSize:"13px",flexWrap:"wrap"}},
         h("a",{href:"tel:"+c.phone,style:{color:C.navy2,textDecoration:"none"}},"📞 "+c.phone),
         c.email && h("a",{href:"mailto:"+c.email,style:{color:C.navy2,textDecoration:"none"}},"✉️ "+c.email))); }));
