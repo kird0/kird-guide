@@ -415,8 +415,7 @@ var DEFAULT_DATA = {
     date: ""
   }],
   contacts: [
-    { role: "교육안내", name: "김다현", phone: "043-251-7060", email: "dhkim@kird.re.kr" },
-    { role: "교육참여", name: "김다현", phone: "043-251-7060", email: "dhkim@kird.re.kr" }
+    { role: "교육안내·참여", name: "", phone: "043-251-7060", email: "dhkim@kird.re.kr" }
   ],
   reviews: [
     { name: "A 연구윤리 담당자", org: "한국전자통신연구원", text: "부정행위 검증 절차를 단계별로 익힐 수 있어 실무에 바로 적용할 수 있겠다는 자신감이 생겼습니다." },
@@ -836,11 +835,11 @@ function InfoTab(props) {
 
     /* 문의처 */
     h(SubTitle, null, "문의처"),
-    h("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" } },
+    h("div", { style: { display: "grid", gridTemplateColumns: data.contacts.length > 1 ? "1fr 1fr" : "1fr", gap: "10px" } },
       data.contacts.map(function (c, i) {
         return h(Card, { key: i, style: { margin: 0, padding: "14px" } },
           h("div", { style: { fontSize: "11px", color: "#2f6da4", fontWeight: 600, marginBottom: "4px" } }, c.role),
-          h("div", { style: { fontSize: "14px", fontWeight: 700, color: "#1a1a1a", marginBottom: "6px" } }, c.name),
+          c.name && h("div", { style: { fontSize: "14px", fontWeight: 700, color: "#1a1a1a", marginBottom: "6px" } }, c.name),
           h("a", { href: "tel:" + c.phone, style: { display: "block", fontSize: "12px", color: "#2f6da4", textDecoration: "none" } }, "📞 " + c.phone),
           h("a", { href: "mailto:" + c.email, style: { display: "block", fontSize: "12px", color: "#2f6da4", textDecoration: "none", marginTop: "2px", wordBreak: "break-all" } }, "✉️ " + c.email)
         );
